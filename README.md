@@ -2,8 +2,9 @@
 
 ## Project setup
 ```
-npm install
+npm install --legacy-peer-deps
 ```
+> NOTE: the ```--legacy-peer-deps``` option is used to surpass ESLint dependency inconsistencies, Alternatively uninstall ESLint
 
 ### Compiles and hot-reloads for development
 ```
