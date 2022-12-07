@@ -1,11 +1,13 @@
 <template>
   <v-app>
+    <!-- Barra de tareas -->
     <v-app-bar
       app
       color="primary"
       dark
     >
       <div class="d-flex align-center">
+        <!-- Logo de la barra de tareas -->
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -28,16 +30,23 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+        class="mx-2"
+        elevation="2"
+        rounded
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      LOGIN
+      </v-btn>
+      <v-btn
+        class="mx-2"
+        elevation="2"
+        rounded
+      >
+      SIGNUP
       </v-btn>
     </v-app-bar>
 
     <v-main>
+      <!-- Vista del View -->
       <router-view/>
     </v-main>
   </v-app>
