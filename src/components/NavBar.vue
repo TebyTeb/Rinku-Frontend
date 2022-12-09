@@ -16,14 +16,6 @@
           transition="scale-transition"
           width="40"
         />
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
       </div>
       <v-toolbar-title class="title">Rinku</v-toolbar-title>
     </v-app-bar>
@@ -32,43 +24,18 @@
       <v-list nav dense>
         <v-list-item-group
           v-model="group"
-          active-class="deep-purple--text text--accent-4"
+          active-class="orange--text text--orange"
         >
           <v-list-item>
             <v-list-item-icon>
               <v-icon>mdi-window-close</v-icon>
             </v-list-item-icon>
           </v-list-item>
-          <v-list-item class="item-hover">
+          <v-list-item v-for="(lins,keys) in links" :key="keys" class="item-hover">
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon>{{lins.icon}}</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item class="item-hover">
-            <v-list-item-icon>
-              <v-icon>mdi-account-plus</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Singup</v-list-item-title>
-          </v-list-item>
-          <v-list-item class="item-hover">
-            <v-list-item-icon>
-              <v-icon>mdi-account-key</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Login</v-list-item-title>
-          </v-list-item>
-          <v-list-item class="item-hover">
-            <v-list-item-icon>
-              <v-icon>mdi-account-group</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>About us</v-list-item-title>
-          </v-list-item>
-          <v-list-item class="item-hover">
-            <v-list-item-icon>
-              <v-icon>mdi-help-circle</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>FAQ</v-list-item-title>
+            <v-list-item-title>{{lins.title}}</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -80,7 +47,29 @@
 export default {
   data: () => ({
     drawer: false,
-    group: null
+    group: null,
+    links: [
+      {
+        icon: 'mdi-home',
+        title: 'Home'
+      },
+      {
+        icon: 'mdi-account-plus',
+        title: 'Singup'
+      },
+      {
+        icon: 'mdi-account-key',
+        title: 'Login'
+      },
+      {
+        icon: 'mdi-account-group',
+        title: 'About us'
+      },
+      {
+        icon: 'mdi-help-circle',
+        title: 'FAQ'
+      }
+    ]
   })
 }
 </script>
@@ -91,6 +80,6 @@ export default {
 }
 
 .item-hover:hover {
- background-color: aquamarine;
+  background-color: #faecd5;
 }
 </style>
