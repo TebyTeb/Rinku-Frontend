@@ -12,7 +12,7 @@
           transition="scale-transition"
           width="40"
         />
-
+        <v-spacer />
         <v-img
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
@@ -22,7 +22,6 @@
           width="100"
         />
       </div>
-      <v-spacer />
       <v-toolbar-title class="title" >Rinku</v-toolbar-title>
     </v-app-bar>
 
