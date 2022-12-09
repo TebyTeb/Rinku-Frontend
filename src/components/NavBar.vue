@@ -12,12 +12,11 @@
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="../assets/Rinku.svg"
           transition="scale-transition"
-          width="40"
+          width="100"
         />
       </div>
-      <v-toolbar-title class="title">Rinku</v-toolbar-title>
     </v-app-bar>
 
     <v-navigation-drawer fixed v-model="drawer" temporary>
