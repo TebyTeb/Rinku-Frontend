@@ -3,7 +3,7 @@
     <v-main>
       <!-- Vista del View -->
       <navBar />
-      <router-view/>
+      <router-view class="view"/>
       <footerBar />
     </v-main>
   </v-app>
@@ -23,3 +23,9 @@ export default {
   })
 }
 </script>
+
+<style scoped>
+.view {
+  margin-bottom: 50px;
+}
+</style>
