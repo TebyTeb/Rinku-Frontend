@@ -15,7 +15,6 @@ export const useAuthStore = defineStore('auth', {
     userEmail () {
       return this.email
     }
-    
   },
   actions: {
     logout () {
