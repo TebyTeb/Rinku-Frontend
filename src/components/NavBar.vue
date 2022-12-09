@@ -2,6 +2,7 @@
   <div>
     <v-app-bar app color="#DD7225">
       <v-app-bar-nav-icon color="white" @click="drawer = true"></v-app-bar-nav-icon>
+      <v-spacer />
       <div class="d-flex align-center">
         <!-- Logo de la barra de tareas -->
         <v-img
@@ -12,7 +13,6 @@
           transition="scale-transition"
           width="40"
         />
-        <v-spacer />
         <v-img
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
