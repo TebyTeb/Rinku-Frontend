@@ -1,9 +1,9 @@
 <template>
-  <div>
-    soy la vista auth
+  <v-container>
+    <div class="cartel">soy la vista auth</div>
     <LogIn v-if="isLogin" @toggleForm="toggleForm"/>
     <SignUp v-else @toggleForm="toggleForm"/>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -28,5 +28,8 @@ export default {
 </script>
 
 <style scoped>
-
+.cartel {
+  background-color: primary;
+  width: 100%;
+}
 </style>
