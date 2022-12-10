@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AuthView from '../views/AuthView.vue'
+import SubscriptionView from '../views/SubscriptionView.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/auth',
     name: 'auth',
     component: AuthView
+  },
+  {
+    path: '/subscription',
+    name: 'subscription',
+    component: SubscriptionView
   },
   {
     path: '/about',
