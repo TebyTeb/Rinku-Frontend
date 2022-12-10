@@ -16,16 +16,15 @@
       <v-card-actions
         class="d-flex flex-column"
       >
-        <a
-          class="mb-5"
-          @click="toggleForm"
-        >I don't have an account yet</a>
-        <v-btn
-          color="primary"
-          class="px-6"
-          rounded
-        >Login
-        </v-btn>
+      <v-btn
+      color="primary"
+      class="px-6 mb-5"
+      rounded
+      >Login
+    </v-btn>
+    <a
+      @click="toggleForm"
+    >Don't have an account? - <span style="color: #DD7225;">Sign Up</span></a>
       </v-card-actions>
     </v-card-text>
 </template>
