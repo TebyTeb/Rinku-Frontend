@@ -76,9 +76,7 @@ export default {
 <style lang="scss" scoped>
 .title {
   color: white;
-}
-
-.item-hover:hover {
+}.item-hover:hover {
   background-color: #faecd5;
 }
 </style>
