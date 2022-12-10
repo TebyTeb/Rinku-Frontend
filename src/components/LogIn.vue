@@ -1,24 +1,14 @@
 <template>
-  <!-- <div>
-    <h3>
-      Soy la vista LogIn
-    </h3>
-    <v-btn @click="toggleForm">change to signup</v-btn>
-  </div> -->
-  <v-card>
-    <v-card-title primary-title>
-      <h2>Login</h2>
-    </v-card-title>
     <v-card-text>
       <v-form>
         <v-text-field
-          filled
-          prepend-icon="mdi-email"
+          outlined
+          prepend-inner-icon="mdi-email"
           label="Email"
         ></v-text-field>
         <v-text-field
-          filled
-          prepend-icon="mdi-lock"
+          outlined
+          prepend-inner-icon="mdi-lock"
           label="Password"
           id="password"
         ></v-text-field>
@@ -29,11 +19,15 @@
         <a
           class="mb-5"
           @click="toggleForm"
-        >Don't have an account yet?</a>
-        <v-btn color="primary">Login</v-btn>
+        >I don't have an account yet</a>
+        <v-btn
+          color="primary"
+          class="px-6"
+          rounded
+        >Login
+        </v-btn>
       </v-card-actions>
     </v-card-text>
-  </v-card>
 </template>
 
 <script>

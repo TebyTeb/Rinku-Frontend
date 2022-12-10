@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app color="#DD7225">
+    <v-app-bar app elevation="0" color="primary">
       <v-app-bar-nav-icon
         color="white"
         @click="drawer = true"
@@ -25,7 +25,9 @@
           v-model="group"
           active-class="orange--text text--orange"
         >
-          <v-list-item>
+          <v-list-item
+          @click="drawer = false"
+          >
             <v-list-item-icon>
               <v-icon>mdi-window-close</v-icon>
             </v-list-item-icon>
