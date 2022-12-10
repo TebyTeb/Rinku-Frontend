@@ -1,4 +1,10 @@
 {
+  "vueCompilerOptions": {
+    "target":2.7,
+    "extensions": [
+      ".vue"
+    ]
+  },
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
