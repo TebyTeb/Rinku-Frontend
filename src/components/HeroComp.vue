@@ -39,12 +39,10 @@ export default {
   margin: 0 20px 0 20px;
 }
 .logandsign {
-  //position: absolute;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  //top: 380px;
 }
 a {
   text-decoration: none;
