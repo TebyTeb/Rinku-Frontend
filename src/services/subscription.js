@@ -6,7 +6,7 @@ const API = axios.create({
 
 async function getSubscriptions (userId) {
   try {
-    const { data } = await API.post('subscriptions' /* {
+    const { data } = await API.get('subscriptions' /* {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin': '*'

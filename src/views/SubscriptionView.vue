@@ -21,6 +21,8 @@
     </v-container>
 
     <SubCard />
+
+    {{ subs }}
   </div>
 
 </template>
@@ -28,6 +30,7 @@
 <script>
 import ProfileBar from '@/components/ProfileBar.vue'
 import SubCard from '@/components/SubCard.vue'
+import subsAPI from '../services/subscription'
 
 export default {
   components: {
@@ -39,7 +42,8 @@ export default {
     rules: [
       value => !!value || 'Required.',
       value => (value && value.length >= 3) || 'Min 3 characters'
-    ]
+    ],
+    subs: []
   }),
   methods: {
     search () {
@@ -47,7 +51,8 @@ export default {
     }
   },
   async created () {
-
+    const subs = await subsAPI.getSubs()
+    this.subs = subs
   }
 }
 </script>
