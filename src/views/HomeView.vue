@@ -23,7 +23,4 @@ export default {
 }
 </script>
 <style scoped>
-.tittle {
-  font-size: 40px;
-}
 </style>
