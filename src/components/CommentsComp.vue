@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <span class="tittle">Comentarios de nuestros usuarios</span>
-    <v-carousel v-model="model" height="fit-content" hide-delimiters show-arrows-on-hover>
+  <div class="cont">
+    <div class="tittle">
+      <span>Comentarios de nuestros usuarios</span>
+    </div>
+    <v-carousel v-model="model" height="300" hide-delimiters show-arrows-on-hover>
       <v-carousel-item v-for="(mensaje) in mensajes" :key="mensaje" >
         <v-card class="mx-auto format" color="#26c6da" dark max-width="400" card-border-radius="100px">
           <v-card-title>
@@ -74,8 +76,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cont {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .tittle {
   font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 .format{
   border-radius: 30px;

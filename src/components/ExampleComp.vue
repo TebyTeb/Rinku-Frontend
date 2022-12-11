@@ -1,6 +1,8 @@
 <template>
   <div>
-    <span class="tittle">Vista de como es nuestro servicio</span>
+    <div class="tittle">
+      <span>Vista de como es nuestro servicio</span>
+    </div>
     <v-carousel interval=3000 cycle>
       <v-carousel-item
         v-for="(item, i) in items"
@@ -39,5 +41,7 @@ export default {
 <style lang="scss" scoped>
 .tittle {
   font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 </style>

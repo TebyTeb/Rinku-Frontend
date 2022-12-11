@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <span class="tittle">BAIT Monkey Team</span>
+  <div class="team">
+    <div class="tittle">
+      <span >BAIT Monkey Team</span>
+    </div>
     <v-card v-for="person in team" :key="person" class="mx-auto" max-width="344">
       <v-img
         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
@@ -42,7 +44,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.team{
+  margin-top: 70px;
+}
 .tittle {
   font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 </style>
