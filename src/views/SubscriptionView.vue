@@ -21,22 +21,6 @@
     </v-container>
 
     <SubCard />
-
-<!--     <v-container>
-      <v-card-text>
-        <v-layout justify-center align-center row>
-          <v-flex class="primary">
-            <v-text-field label="Search" append-icon="mdi-magnify" @click:append="search" v-model="searchInput"></v-text-field>
-          </v-flex>
-          <v-flex class="secondary" style="width:0px">
-            <v-btn
-                class="mx-2" fab dark small color="primary">
-                <v-icon dark>mdi-sort</v-icon>
-              </v-btn>
-          </v-flex>
-        </v-layout>
-      </v-card-text>
-    </v-container> -->
   </div>
 
 </template>
@@ -59,8 +43,11 @@ export default {
   }),
   methods: {
     search () {
-      alert('clicked OK!')
+      alert('clicked OK!') /* Arreglar eso!! */
     }
+  },
+  async created () {
+
   }
 }
 </script>
