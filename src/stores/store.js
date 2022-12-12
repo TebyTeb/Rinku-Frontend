@@ -14,6 +14,9 @@ export const useAuthStore = defineStore('auth', {
     },
     userEmail () {
       return this.email
+    },
+    userToken () {
+      return this.token
     }
   },
   actions: {

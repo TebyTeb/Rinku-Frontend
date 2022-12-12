@@ -6,17 +6,20 @@
         @click="drawer = true"
       ></v-app-bar-nav-icon>
       <v-spacer />
-      <div class="d-flex align-center">
-        <!-- Logo de la barra de tareas -->
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="../assets/Rinku.svg"
-          transition="scale-transition"
-          width="100"
-        />
-      </div>
+      <RouterLink :to="{ name: 'home' }">
+        <div class="d-flex align-center">
+          <!-- Logo de la barra de tareas -->
+          <v-img
+            alt="Vuetify Logo"
+            class="shrink mr-2"
+            contain
+            src="../assets/Rinku.svg"
+            transition="scale-transition"
+            width="100"
+          />
+        </div>
+      </RouterLink>
+
     </v-app-bar>
 
     <v-navigation-drawer fixed v-model="drawer" temporary>
@@ -45,6 +48,8 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router'
+
 export default {
   data: () => ({
     drawer: false,
@@ -71,7 +76,8 @@ export default {
         title: 'FAQ'
       }
     ]
-  })
+  }),
+  components: { RouterLink }
 }
 </script>
 

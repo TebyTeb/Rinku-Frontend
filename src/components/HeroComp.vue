@@ -5,16 +5,19 @@
         >Bienvenido a nuestro servicio de gestion de subcripciones</span
       >
       <div class="logandsign">
-        <v-btn color="warning" dark> Create an account </v-btn>
-        <a href="">Already a member?</a>
+        <RouterLink :to="{ name: 'auth'}"><v-btn color="warning" dark> Create an account </v-btn></RouterLink>
+        <RouterLink :to="{ name: 'auth'}">Already a member?</RouterLink>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router'
+
 export default {
-  //
+  components: { RouterLink }
 }
 </script>
 

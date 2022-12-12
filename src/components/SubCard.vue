@@ -1,18 +1,19 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto my-5"
     max-width="344"
     prepend-icon="mdi-bell"
     title="twitter"
+    color="orange lighten-5"
   >
   <v-container d-flex flex-no-wrap justify-space-between>
-    <img src="../assets/logos/amazon-logo.png">
+    <img src="../assets/logos/1.png">
     <div>
       <v-card-title>
-        Amazon
+        {{ this.sub.name }}
       </v-card-title>
       <v-card-subtitle>
-        1,000 miles of wonder
+        {{ this.sub.plan.name }}
       </v-card-subtitle>
     </div>
     <v-card-actions>
@@ -30,8 +31,42 @@
         <v-divider></v-divider>
 
         <v-card-text>
-          HOLA
+          <p><strong>Billing: </strong>{{ sub.plan.quantity }} €/{{sub.plan.hiring}}</p>
+          <v-divider></v-divider>
+          <p><strong>Payment method: </strong>{{ sub.payment_method }}</p>
+          <v-divider></v-divider>
+          <p><strong>First payment: </strong>{{ sub.hiring_day.toLocaleString('es-ES') }}</p>
+          <v-divider></v-divider>
+          <p><strong>Next Payment: </strong>{{ sub.nextPayment.toLocaleString('es-ES') }}</p>
+          <v-divider></v-divider>
+          <p><strong>Paid in total: </strong>{{ sub.totalPaid }} €</p>
+          <v-divider v-if="sub.notes !== ''"></v-divider>
+          <p v-if="sub.notes !== ''"><strong>Notes: </strong>{{ sub.notes }}</p>
         </v-card-text>
+
+        <v-div class="d-flex flex-row">
+          <v-div class="text-center d-flex flex-column ml-3" style="width: 60px;">
+            <v-btn icon class="mx-auto">
+              <v-icon>mdi-bell</v-icon>
+            </v-btn>
+            <span style="font-size: 12px;">NOTIFY</span>
+          </v-div>
+
+          <v-spacer></v-spacer>
+
+          <v-div class="text-center d-flex flex-column" style="width: 60px;">
+            <v-btn icon class="mx-auto">
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
+            <span style="font-size: 12px;">EDIT</span>
+          </v-div>
+          <v-div class="text-center d-flex flex-column mr-3" style="width: 60px;">
+            <v-btn icon class="mx-auto" @click="deleteSub">
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
+            <span style="font-size: 12px;">DELETE</span>
+          </v-div>
+        </v-div>
       </div>
     </v-expand-transition>
   </v-card>
@@ -39,9 +74,17 @@
 
 <script>
 export default {
+  props: {
+    sub: Object
+  },
   data: () => ({
     show: false
-  })
+  }),
+  methods: {
+    async deleteSub () {
+      this.$emit('delete-sub', this.sub._id)
+    }
+  }
 }
 </script>
 
