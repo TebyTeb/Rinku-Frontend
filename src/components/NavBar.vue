@@ -78,7 +78,7 @@ export default {
         title: 'About us'
       },
       {
-        name: '/',
+        name: 'FAQ',
         icon: 'mdi-help-circle',
         title: 'FAQ'
       }
