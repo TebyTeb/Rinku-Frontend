@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="isLogin"
+      v-if="loginForm"
       class="cartel"
     >
       <h2>Login</h2>
@@ -19,7 +19,7 @@
         mode="out-in"
         name="fade"
       >
-        <LogIn v-if="isLogin" @toggleForm="toggleForm" />
+        <LogIn v-if="loginForm" @toggleForm="toggleForm" />
         <SignUp v-else @toggleForm="toggleForm" />
       </transition>
     </v-container>
@@ -29,6 +29,7 @@
 <script>
 import LogIn from '../components/LogIn.vue'
 import SignUp from '../components/SignUp.vue'
+import { useAuthStore } from '@/stores/store'
 export default {
   components: {
     LogIn,
@@ -36,12 +37,12 @@ export default {
   },
   data () {
     return {
-      isLogin: true
+      loginForm: useAuthStore().getIsLogin
     }
   },
   methods: {
     toggleForm: function () {
-      this.isLogin = !this.isLogin
+      this.loginForm = !this.loginForm
     }
   }
 }
