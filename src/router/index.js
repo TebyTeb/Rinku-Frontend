@@ -5,6 +5,7 @@ import LoginView from '../views/LoginView.vue'
 import SignupView from '../views/SignupView.vue'
 import SubscriptionView from '../views/SubscriptionView.vue'
 import AboutUsViewVue from '../views/AboutUsView.vue'
+import NotificationView from '../views/NotificationView.vue'
 import FAQView from '../views/FAQView.vue'
 
 Vue.use(VueRouter)
@@ -29,6 +30,11 @@ const routes = [
     path: '/subscription',
     name: 'subscription',
     component: SubscriptionView
+  },
+  {
+    path: '/notifs',
+    name: 'notification',
+    component: NotificationView
   },
   {
     path: '/about',
