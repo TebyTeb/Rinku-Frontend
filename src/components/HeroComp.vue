@@ -2,11 +2,11 @@
   <div class="bar">
     <div class="foo">
       <span class="hero"
-        >Bienvenido a nuestro servicio de gestion de subcripciones</span
+        >Bienvenido/a a nuestro servicio de gestion de subcripciones</span
       >
       <div class="logandsign">
         <RouterLink :to="{ name: 'auth'}"><v-btn color="warning" dark> Create an account </v-btn></RouterLink>
-        <RouterLink :to="{ name: 'auth'}">Already a member?</RouterLink>
+        <RouterLink :to="{ name: 'auth'}" class="sign">Already a member?</RouterLink>
 
       </div>
     </div>
@@ -46,6 +46,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.sign {
+  text-decoration: none;
+  color: white;
 }
 a {
   text-decoration: none;

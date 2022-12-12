@@ -1,7 +1,8 @@
 <template>
   <div class="team">
     <div class="tittle">
-      <span >BAIT Monkey Team</span>
+      <v-img src="../assets/Monkey.svg"></v-img>
+      <span class="leter">BAIT Monkey Team</span>
     </div>
     <v-card v-for="person in team" :key="person" class="mx-auto usercard" max-width="344">
       <v-img
@@ -48,11 +49,17 @@ export default {
   margin-top: 70px;
 }
 .tittle {
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .usercard {
   margin-bottom: 20px;
+}
+.leter {
+  margin-left: 15px;
 }
 </style>
