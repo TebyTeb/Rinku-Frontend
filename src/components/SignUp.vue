@@ -58,7 +58,6 @@
         :rules="[rules.pwdCheck]"
         @click:append="show2 = !show2"
       ></v-text-field>
-      {{valid}}
     </v-form>
     <v-card-actions class="d-flex flex-column">
       <v-btn
