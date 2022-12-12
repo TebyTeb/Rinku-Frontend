@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useAuthStore } from '../stores/store'
 
 const API = axios.create({
-  baseURL: 'http://localhost:7070/api'
+  baseURL: 'http://localhost:3000/api'
 })
 
 async function getSubscriptions () {

@@ -37,7 +37,7 @@
         label="Phone"
         :rules="[rules.required, rules.phone]"
         type="tel"
-        v-model="newUser.phone"
+        v-model="newUser.telephone"
       ></v-text-field>
       <v-text-field
         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -58,24 +58,30 @@
         :rules="[rules.pwdCheck]"
         @click:append="show2 = !show2"
       ></v-text-field>
-      {{valid}}
     </v-form>
     <v-card-actions class="d-flex flex-column">
       <v-btn
         color="primary"
         class="px-6 mb-5"
         rounded
-        @click="validate"
+        @click="signUp"
       >
       Signup
       </v-btn>
-      <a @click="toggleForm">Already a member? <span style="color: #DD7225;">Log In</span></a>
+      <RouterLink :to="{name: 'login'}">Already a member? <span style="color: #DD7225;">Log In</span></RouterLink>
     </v-card-actions>
   </v-card-text>
 </template>
 
 <script>
+import api from '@/services/api'
+import { useAuthStore } from '@/stores/store'
+import { RouterLink } from 'vue-router'
+
 export default {
+  components: {
+    RouterLink
+  },
   data () {
     return {
       valid: false,
@@ -95,24 +101,28 @@ export default {
         surname: null,
         age: null,
         email: null,
-        phone: null,
+        telephone: null,
         password: null
-      }
+      },
+      store: useAuthStore()
     }
   },
   computed: {
 
   },
   methods: {
-    toggleForm () {
-      this.$emit('toggleForm')
-    },
-    validate () {
+    async signUp () {
       this.$refs.form.validate()
 
-      if (this.valid && Object.values(this.newUser).includes(null) === false) return console.log('signup succesful')
-
-      console.log('signup failed')
+      if (this.valid && Object.values(this.newUser).includes(null) === false) {
+        const response = await api.signup(this.newUser)
+        if (response.error) {
+          alert('Error creating account')
+        } else {
+          this.store.login(response.token, response.email)
+          this.$router.push({ name: 'subscription' })
+        }
+      }
     }
   }
 }
