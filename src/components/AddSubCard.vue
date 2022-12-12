@@ -13,7 +13,7 @@
             <v-container>
               <v-row>
                 <v-col cols="12" sm="6" md="4">
-                  <v-text-field label="Hiring date*" v-model="hiring"
+                  <v-text-field label="Hiring date*" v-model="hiring" type="date"
                     hint="This data will be taken to calculate payment days and  total paid amounts"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
