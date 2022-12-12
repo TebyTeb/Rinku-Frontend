@@ -5,8 +5,7 @@ export const useAuthStore = defineStore('auth', {
   state: () => {
     return {
       token: useStorage('token', null),
-      email: useStorage('email', null),
-      isLogin: false
+      email: useStorage('email', null)
     }
   },
   getters: {
@@ -18,9 +17,6 @@ export const useAuthStore = defineStore('auth', {
     },
     userToken () {
       return this.token
-    },
-    getIsLogin () {
-      return this.isLogin
     }
   },
   actions: {
@@ -31,9 +27,6 @@ export const useAuthStore = defineStore('auth', {
     login (token, email) {
       this.token = token
       this.email = email
-    },
-    setIsLogin (value) {
-      this.isLogin = value
     }
   }
 })
