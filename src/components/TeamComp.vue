@@ -3,7 +3,7 @@
     <div class="tittle">
       <span >BAIT Monkey Team</span>
     </div>
-    <v-card v-for="person in team" :key="person" class="mx-auto" max-width="344">
+    <v-card v-for="person in team" :key="person" class="mx-auto usercard" max-width="344">
       <v-img
         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
         height="200px"
@@ -50,6 +50,9 @@ export default {
 .tittle {
   font-size: 40px;
   text-align: center;
+  margin-bottom: 20px;
+}
+.usercard {
   margin-bottom: 20px;
 }
 </style>
