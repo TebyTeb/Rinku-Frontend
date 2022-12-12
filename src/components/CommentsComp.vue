@@ -1,7 +1,7 @@
 <template>
   <div class="cont">
     <div class="tittle">
-      <span>Comentarios de nuestros usuarios</span>
+      <span>Reseñas</span>
     </div>
     <v-carousel v-model="model" height="300" hide-delimiters show-arrows-on-hover>
       <v-carousel-item v-for="(mensaje) in mensajes" :key="mensaje" >

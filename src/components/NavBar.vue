@@ -35,12 +35,12 @@
               <v-icon>mdi-window-close</v-icon>
             </v-list-item-icon>
           </v-list-item>
-          <v-list-item v-for="(lins,keys) in links" :key="keys" class="item-hover">
-            <RouterLink :to=lins.name class="links">
+          <v-list-item v-for="(link,keys) in links" :key="keys" class="item-hover">
+            <RouterLink :to=link.name class="links">
               <v-list-item-icon>
-                <v-icon>{{lins.icon}}</v-icon>
+                <v-icon>{{link.icon}}</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>{{lins.title}}</v-list-item-title>
+              <v-list-item-title>{{link.title}}</v-list-item-title>
             </RouterLink>
           </v-list-item>
         </v-list-item-group>
@@ -78,7 +78,7 @@ export default {
         title: 'About us'
       },
       {
-        name: '/',
+        name: 'FAQ',
         icon: 'mdi-help-circle',
         title: 'FAQ'
       }
