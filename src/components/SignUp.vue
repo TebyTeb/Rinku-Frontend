@@ -37,7 +37,7 @@
         label="Phone"
         :rules="[rules.required, rules.phone]"
         type="tel"
-        v-model="newUser.phone"
+        v-model="newUser.telephone"
       ></v-text-field>
       <v-text-field
         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -65,7 +65,7 @@
         color="primary"
         class="px-6 mb-5"
         rounded
-        @click="validate"
+        @click="signUp"
       >
       Signup
       </v-btn>
@@ -75,6 +75,9 @@
 </template>
 
 <script>
+import api from '@/services/api'
+import { useAuthStore } from '@/stores/store'
+
 export default {
   data () {
     return {
@@ -95,9 +98,10 @@ export default {
         surname: null,
         age: null,
         email: null,
-        phone: null,
+        telephone: null,
         password: null
-      }
+      },
+      store: useAuthStore()
     }
   },
   computed: {
@@ -107,12 +111,18 @@ export default {
     toggleForm () {
       this.$emit('toggleForm')
     },
-    validate () {
+    async signUp () {
       this.$refs.form.validate()
 
-      if (this.valid && Object.values(this.newUser).includes(null) === false) return console.log('signup succesful')
-
-      console.log('signup failed')
+      if (this.valid && Object.values(this.newUser).includes(null) === false) {
+        const response = await api.signup(this.newUser)
+        if (response.error) {
+          alert('Error creating account')
+        } else {
+          this.store.login(response.token, response.email)
+          this.$router.push({ name: 'subscription' })
+        }
+      }
     }
   }
 }

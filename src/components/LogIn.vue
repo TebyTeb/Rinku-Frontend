@@ -44,7 +44,8 @@ export default {
       loginData: {
         email: '',
         password: ''
-      }
+      },
+      store: useAuthStore()
     }
   },
   methods: {
@@ -53,7 +54,7 @@ export default {
       if (response.error) {
         alert('wrong username/password') // No funciona
       } else {
-        useAuthStore().login(response.token, response.email)
+        this.store.login(response.token, response.email)
         this.loginData.email = ''
         this.loginData.password = ''
         this.$router.push({ name: 'subscription' })
