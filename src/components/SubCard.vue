@@ -7,7 +7,7 @@
     color="orange lighten-5"
   >
   <v-container d-flex flex-no-wrap justify-space-between>
-    <img src="../assets/logos/1.png">
+    <img :src="require(`../assets/logos/${1}.png`)">
     <div>
       <v-card-title>
         {{ this.sub.name }}
