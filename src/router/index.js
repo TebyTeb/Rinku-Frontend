@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AuthView from '../views/AuthView.vue'
+import LoginView from '../views/LoginView.vue'
+import SignupView from '../views/SignupView.vue'
 import SubscriptionView from '../views/SubscriptionView.vue'
 import AboutUsViewVue from '../views/AboutUsView.vue'
 import FAQView from '../views/FAQView.vue'
@@ -15,9 +16,14 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/auth',
-    name: 'auth',
-    component: AuthView
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupView
   },
   {
     path: '/subscription',
