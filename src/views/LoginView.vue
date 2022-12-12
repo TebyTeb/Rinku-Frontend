@@ -1,26 +1,17 @@
 <template>
   <div>
     <div
-      v-if="loginForm"
       class="cartel"
     >
       <h2>Login</h2>
       <p>Welcome back</p>
-    </div>
-    <div
-      v-else
-      class="cartel"
-    >
-      <h2>Signup</h2>
-      <p>Create your account</p>
     </div>
     <v-container class="logger">
       <transition
         mode="out-in"
         name="fade"
       >
-        <LogIn v-if="loginForm" @toggleForm="toggleForm" />
-        <SignUp v-else @toggleForm="toggleForm" />
+        <LogIn />
       </transition>
     </v-container>
   </div>
@@ -28,22 +19,9 @@
 
 <script>
 import LogIn from '../components/LogIn.vue'
-import SignUp from '../components/SignUp.vue'
-import { useAuthStore } from '@/stores/store'
 export default {
   components: {
-    LogIn,
-    SignUp
-  },
-  data () {
-    return {
-      loginForm: useAuthStore().getIsLogin
-    }
-  },
-  methods: {
-    toggleForm: function () {
-      this.loginForm = !this.loginForm
-    }
+    LogIn
   }
 }
 </script>
