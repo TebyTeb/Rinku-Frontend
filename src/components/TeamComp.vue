@@ -4,15 +4,14 @@
       <v-img src="../assets/Monkey.svg"></v-img>
       <span class="leter">BAIT Monkey Team</span>
     </div>
-    <v-card v-for="person in team" :key="person" class="mx-auto usercard" max-width="344">
+    <v-card v-for="per in team" :key="per" class="mx-auto usercard" max-width="344">
       <v-img
-        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-        height="200px"
+        :src="per.imgsrc"
       ></v-img>
 
-      <v-card-title> {{person.name}} </v-card-title>
+      <v-card-title> {{per.name}} </v-card-title>
 
-      <v-card-subtitle> {{person.puesto}} </v-card-subtitle>
+      <v-card-subtitle> {{per.puesto}} </v-card-subtitle>
     </v-card>
   </div>
 </template>
@@ -24,19 +23,23 @@ export default {
       team: [
         {
           name: 'Barbara Segura Suarez',
-          puesto: 'Directora de Diseño'
+          puesto: 'Directora de Diseño',
+          imgsrc: '../assets/Imgalex.jpg'
         },
         {
           name: 'Alejandro Cruz Santiago',
-          puesto: 'El del Cafe'
+          puesto: 'El del Cafe',
+          imgsrc: '../assets/Imgalex.jpg'
         },
         {
           name: 'Iratze Eizaguirre Loro',
-          puesto: 'Jefa de Recursos Humanos'
+          puesto: 'Jefa de Recursos Humanos',
+          imgsrc: '../assets/Imgalex.jpg'
         },
         {
           name: 'Esteban Ojeda Hernandez',
-          puesto: 'Jefe de Seguridad'
+          puesto: 'Jefe de Seguridad',
+          imgsrc: '../assets/Imgalex.jpg'
         }
       ]
     }
