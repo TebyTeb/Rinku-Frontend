@@ -6,9 +6,9 @@
     </div>
     <v-card v-for="per in team" :key="per" class="mx-auto usercard" max-width="344">
       <v-img
-        :src="per.imgsrc"
+        :src="require(`../assets/${per.imgsrc}.jpg`)"
+        height="270"
       ></v-img>
-
       <v-card-title> {{per.name}} </v-card-title>
 
       <v-card-subtitle> {{per.puesto}} </v-card-subtitle>
@@ -22,24 +22,24 @@ export default {
     return {
       team: [
         {
-          name: 'Barbara Segura Suarez',
+          name: 'Bárbara Segura Suárez',
           puesto: 'Directora de Diseño',
-          imgsrc: '../assets/Imgalex.jpg'
+          imgsrc: 'barbara'
         },
         {
           name: 'Alejandro Cruz Santiago',
           puesto: 'El del Cafe',
-          imgsrc: '../assets/Imgalex.jpg'
+          imgsrc: 'alex'
         },
         {
           name: 'Iratze Eizaguirre Loro',
           puesto: 'Jefa de Recursos Humanos',
-          imgsrc: '../assets/Imgalex.jpg'
+          imgsrc: 'iratze'
         },
         {
-          name: 'Esteban Ojeda Hernandez',
+          name: 'Esteban Ojeda Hernaández',
           puesto: 'Jefe de Seguridad',
-          imgsrc: '../assets/Imgalex.jpg'
+          imgsrc: 'teby'
         }
       ]
     }
