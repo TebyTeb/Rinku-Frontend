@@ -58,8 +58,9 @@ export default {
     this.subs = subs
   },
   methods: {
-    showAddSub () {
+    showAddSub (plan, sub) {
       this.addingSub = true
+      console.log(plan.name)
     },
     /* async addSub (plan, sub) {
       const newSub = {

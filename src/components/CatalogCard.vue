@@ -22,12 +22,12 @@
 
           <v-card class="mx-auto" width="300" height="300">
             <v-list>
-              <v-list-group v-for="(elem, i) in search" :key="i" :value="false" prepend-icon="mdi-account-circle">
+              <v-list-group v-for="(sub, i) in search" :key="i" :value="false" prepend-icon="mdi-account-circle">
                 <template v-slot:activator>
-                  <v-list-item-title>{{ elem.name }}</v-list-item-title>
+                  <v-list-item-title>{{ sub.name }}</v-list-item-title>
                 </template>
-                <v-list-item v-for="(child, i) in elem.plans" :key="i" link>
-                  <v-list-item-title @click="showAddSub()">{{ child.name }}</v-list-item-title>
+                <v-list-item v-for="(plan, i) in sub.plans" :key="i" link>
+                  <v-list-item-title @click="showAddSub(plan, sub)">{{ plan.name }}</v-list-item-title>
                   <v-list-item-icon>
                     <v-icon v-text="icon"></v-icon>
                   </v-list-item-icon>
@@ -54,7 +54,9 @@ export default {
     unsublink: '',
     instructions: '',
     payment_method: '',
-    dialog: false
+    dialog: false,
+    planToAdd: '',
+    subToAdd: ''
   }),
   computed: {
     search () {
@@ -66,8 +68,8 @@ export default {
     this.catalog = catalog
   },
   methods: {
-    showAddSub () {
-      this.$emit('show-add-sub')
+    showAddSub (plan, sub) {
+      this.$emit('show-add-sub', plan, sub)
     }
   }
 }
