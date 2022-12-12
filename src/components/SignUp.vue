@@ -69,7 +69,7 @@
       >
       Signup
       </v-btn>
-      <a @click="toggleForm">Already a member? <span style="color: #DD7225;">Log In</span></a>
+      <RouterLink :to="{name: 'login'}">Already a member? <span style="color: #DD7225;">Log In</span></RouterLink>
     </v-card-actions>
   </v-card-text>
 </template>
@@ -77,8 +77,12 @@
 <script>
 import api from '@/services/api'
 import { useAuthStore } from '@/stores/store'
+import { RouterLink } from 'vue-router'
 
 export default {
+  components: {
+    RouterLink
+  },
   data () {
     return {
       valid: false,
@@ -108,9 +112,6 @@ export default {
 
   },
   methods: {
-    toggleForm () {
-      this.$emit('toggleForm')
-    },
     async signUp () {
       this.$refs.form.validate()
 
