@@ -8,47 +8,66 @@ import AboutUsViewVue from '../views/AboutUsView.vue'
 import NotificationView from '../views/NotificationView.vue'
 import FAQView from '../views/FAQView.vue'
 
+import { useAuthStore } from '../stores/store'
+
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: {
+      requiresAuth: false
+    }
   },
   {
     path: '/login',
     name: 'login',
-    component: LoginView
+    component: LoginView,
+    meta: {
+      requiresAuth: false
+    }
   },
   {
     path: '/signup',
     name: 'signup',
-    component: SignupView
+    component: SignupView,
+    meta: {
+      requiresAuth: false
+    }
   },
   {
     path: '/subscription',
     name: 'subscription',
-    component: SubscriptionView
+    component: SubscriptionView,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/notifs',
     name: 'notification',
-    component: NotificationView
+    component: NotificationView,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/about',
     name: 'about',
-    component: AboutUsViewVue
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () => import(/* webpackChunkName: "about" */ '../views/AuthView.vue')
+    component: AboutUsViewVue,
+    meta: {
+      requiresAuth: false
+    }
   },
   {
     path: '/FAQ',
     name: 'FAQ',
-    component: FAQView
+    component: FAQView,
+    meta: {
+      requiresAuth: false
+    }
   }
 
 ]
@@ -57,6 +76,15 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, _, next) => {
+  const store = useAuthStore()
+  if (to.meta.requiresAuth && !store.isLoggedIn) {
+    next({ name: 'login' })
+  } else {
+    next()
+  }
 })
 
 export default router
