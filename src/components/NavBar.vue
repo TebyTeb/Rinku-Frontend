@@ -36,10 +36,12 @@
             </v-list-item-icon>
           </v-list-item>
           <v-list-item v-for="(lins,keys) in links" :key="keys" class="item-hover">
-            <v-list-item-icon>
-              <v-icon>{{lins.icon}}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>{{lins.title}}</v-list-item-title>
+            <RouterLink :to=lins.name class="links">
+              <v-list-item-icon>
+                <v-icon>{{lins.icon}}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>{{lins.title}}</v-list-item-title>
+            </RouterLink>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -56,22 +58,27 @@ export default {
     group: null,
     links: [
       {
+        name: '/',
         icon: 'mdi-home',
         title: 'Home'
       },
       {
+        name: 'signup',
         icon: 'mdi-account-plus',
-        title: 'Singup'
+        title: 'Signup'
       },
       {
+        name: 'login',
         icon: 'mdi-account-key',
         title: 'Login'
       },
       {
+        name: 'about',
         icon: 'mdi-account-group',
         title: 'About us'
       },
       {
+        name: 'FAQ',
         icon: 'mdi-help-circle',
         title: 'FAQ'
       }
@@ -86,5 +93,9 @@ export default {
   color: white;
 }.item-hover:hover {
   background-color: #faecd5;
+}
+.links{
+  text-decoration: none;
+  display: flex;
 }
 </style>
