@@ -54,9 +54,7 @@ export default {
     unsublink: '',
     instructions: '',
     payment_method: '',
-    dialog: false,
-    planToAdd: '',
-    subToAdd: ''
+    dialog: false
   }),
   computed: {
     search () {

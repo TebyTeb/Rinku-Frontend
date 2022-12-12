@@ -53,7 +53,7 @@
 </template>
 
 <script>
-// import catAPI from '../services/catalog.js'
+import subsAPI from '../services/subscription.js'
 
 export default {
   data: () => ({
@@ -62,24 +62,29 @@ export default {
     paymentMethod: '',
     notes: ''
   }),
+  props: {
+    sub: Object,
+    plan: Object
+  },
   methods: {
-    async addSub (plan, sub) {
-      alert('VA BIEN')
+    async addSub () {
       const newSub = {
-        name: sub.name,
+        name: this.sub.name,
         plan: {
-          name: plan.name,
-          hiring: plan.hiring,
-          quantity: plan.quantity
+          name: this.plan.name,
+          hiring: this.plan.hiring,
+          quantity: this.plan.quantity
         },
-        unsublink: '',
-        instructions: '',
-        hiring_day: this.hiring,
+        unsublink: this.sub.unsublink,
+        instructions: this.sub.instructions,
+        hiring_day: new Date(this.hiring),
         payment_method: this.paymentMethod,
-        notes: this.notes
+        notes: this.notes,
+        iconName: this.sub.iconName
       }
       console.log(newSub)
-      /* await subsAPI.addSubscriptions(newSub) */
+      await subsAPI.addSubscription(newSub)
+      this.$emit('updt-subs', newSub)
     },
     closeAddSub () {
       this.$emit('close-add-sub')
