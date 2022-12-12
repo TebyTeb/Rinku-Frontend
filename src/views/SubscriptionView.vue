@@ -21,7 +21,7 @@
     </v-container>
     <SubCard v-for="(sub, idx) in search" :key="idx" :sub="sub" @delete-sub="deleteSub"/>
     <CatalogCard @show-add-sub="showAddSub"/>
-    <AddSubCard v-if="addingSub" @close-add-sub="addingSub = false"/>
+    <AddSubCard v-if="addingSub" @close-add-sub="addingSub = false" @updt-subs="updtSubs" :sub="subToAdd" :plan="planToAdd"/>
   </div>
 </template>
 
@@ -46,7 +46,9 @@ export default {
       value => (value && value.length >= 3) || 'Min 3 characters'
     ],
     subs: [],
-    addingSub: false
+    addingSub: false,
+    planToAdd: '',
+    subToAdd: ''
   }),
   computed: {
     search () {
@@ -60,26 +62,12 @@ export default {
   methods: {
     showAddSub (plan, sub) {
       this.addingSub = true
-      console.log(plan.name)
+      this.planToAdd = plan
+      this.subToAdd = sub
     },
-    /* async addSub (plan, sub) {
-      const newSub = {
-        userid: '6395e8f1dde096bf11dd1688',
-        name: sub.name,
-        plan: {
-          name: plan.name,
-          hiring: plan.hiring,
-          quantity: plan.quantity
-        },
-        unsublink: '',
-        instructions: '',
-        hiring_day: new Date(),
-        payment_method: '',
-        notes: ''
-      }
-      console.log(newSub)
-      await subsAPI.addSubscriptions(newSub)
-    }, */
+    updtSubs (newSub) {
+      this.subs.push(newSub)
+    },
     async deleteSub (subId) {
       await subsAPI.deleteSubscription(subId)
       this.subs = this.subs.filter(sub => sub._id !== subId)
