@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="tittle">
-      <span>Vista de como es nuestro servicio</span>
+      <span>Nuestra App</span>
     </div>
     <v-carousel interval=3000 cycle>
       <v-carousel-item
