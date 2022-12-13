@@ -6,7 +6,7 @@
       <v-icon>mdi-subtitles-outline</v-icon>
     </v-btn>
 
-    <v-btn value="balance">
+    <v-btn value="notification">
       <span>Notifications</span>
 
       <v-icon>mdi-bell</v-icon>
