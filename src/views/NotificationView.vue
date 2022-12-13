@@ -6,6 +6,7 @@
           <v-text-field label="Search" append-icon="mdi-magnify" v-model="searchInput"></v-text-field>
       </v-card-text>
     </v-container>
+    <AddNotifCard2 @add-notif="addNotif(newNotif)"/>
     <NotifCard v-for="(notif, idx) in search" :key="idx" :notif="notif" @updt-notifs="updtNotifs"/>
   </div>
 </template>
@@ -13,12 +14,14 @@
 <script>
 import ProfileBar from '@/components/ProfileBar.vue'
 import NotifCard from '@/components/NotifCard.vue'
+import AddNotifCard2 from '@/components/AddNotifCard2.vue'
 import notificAPI from '../services/notification.js'
 
 export default {
   components: {
     ProfileBar,
-    NotifCard
+    NotifCard,
+    AddNotifCard2
   },
   data: () => ({
     searchInput: '',
@@ -37,6 +40,10 @@ export default {
       console.log(notifId)
       const updtdNotifs = this.notifs.filter(notif => notif._id !== notifId)
       this.notifs = updtdNotifs
+    },
+    addNotif (newNotif) {
+      alert('llegó!')
+      this.notifs.push(newNotif)
     }
   }
 }
