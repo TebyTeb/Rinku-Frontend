@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-row justify="center">
+    <v-row justify="center" style="margin: 0px">
       <v-dialog v-model="dialog" scrollable max-width="300px">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" dark small fab v-bind="attrs" v-on="on" @click="store.switchDialog">
-            <v-icon dark>mdi-plus</v-icon>
+          <v-btn rounded color="primary" dark v-bind="attrs" v-on="on" @click="store.switchDialog">
+            ADD SUBSCRIPTION
           </v-btn>
         </template>
         <v-card>

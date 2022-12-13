@@ -55,6 +55,11 @@ const routes = [
     }
   },
   {
+    path: '/notification',
+    name: 'notification',
+    component: NotificationView
+  },
+  {
     path: '/about',
     name: 'about',
     component: AboutUsView,

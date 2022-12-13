@@ -19,10 +19,24 @@ async function getNotifications () {
   }
 }
 
-async function addNotifications (notifData) {
+async function addNotification (notData) {
   try {
     const store = useAuthStore()
-    const { data } = await API.post('/notification', notifData, {
+    const { data } = await API.post('/notification', notData, {
+      headers: {
+        token: store.userToken
+      }
+    })
+    return data
+  } catch (error) {
+    return { error: error.message }
+  }
+}
+
+async function deleteNotification (notId) {
+  try {
+    const store = useAuthStore()
+    const { data } = await API.delete(`/notification/${notId}`, {
       headers: {
         token: store.userToken
       }
@@ -35,5 +49,6 @@ async function addNotifications (notifData) {
 
 export default {
   getNotifications,
-  addNotifications
+  addNotification,
+  deleteNotification
 }
