@@ -37,7 +37,7 @@ export default {
           imgsrc: 'iratze'
         },
         {
-          name: 'Esteban Ojeda Hernaández',
+          name: 'Esteban Ojeda Hernández',
           puesto: 'Jefe de Seguridad',
           imgsrc: 'teby'
         }

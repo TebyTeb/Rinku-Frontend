@@ -2,7 +2,7 @@
   <div class="bar">
     <div class="foo">
       <span class="hero"
-        >Bienvenido/a a nuestro servicio de gestion de subcripciones</span
+        >Bienvenido/a a nuestro servicio de gestión de subcripciones</span
       >
       <div class="logandsign">
         <RouterLink :to="{ name: 'auth'}"><v-btn color="warning" dark> Create an account </v-btn></RouterLink>
