@@ -30,3 +30,11 @@ export const useAuthStore = defineStore('auth', {
     }
   }
 })
+
+export const useCatalogStore = defineStore('catalog', {
+  state: () => {
+    return {
+      dialog: false
+    }
+  }
+})
