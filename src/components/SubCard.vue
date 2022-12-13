@@ -35,11 +35,11 @@
           <v-divider></v-divider>
           <p><strong>Payment method: </strong>{{ sub.payment_method }}</p>
           <v-divider></v-divider>
-          <p><strong>First payment: </strong>{{ sub.hiring_day.toLocaleString('es-ES') }}</p>
+          <p><strong>First payment: </strong>{{ new Date(sub.hiring_day).toLocaleDateString('es-ES') }}</p>
           <v-divider></v-divider>
-          <p><strong>Next Payment: </strong>{{ sub.nextPayment.toLocaleString('es-ES') }}</p>
+          <p><strong>Next Payment: </strong>{{ new Date(sub.nextPayment).toLocaleDateString('es-ES') }}</p>
           <v-divider></v-divider>
-          <p><strong>Paid in total: </strong>{{ sub.totalPaid }} €</p>
+          <p><strong>Paid in total: </strong>{{ parseFloat(sub.totalPaid).toFixed(2) }} €</p>
           <v-divider v-if="sub.notes !== ''"></v-divider>
           <p v-if="sub.notes !== ''"><strong>Notes: </strong>{{ sub.notes }}</p>
         </v-card-text>
