@@ -54,9 +54,11 @@
 
 <script>
 import subsAPI from '../services/subscription.js'
+import { useCatalogStore } from '@/stores/store'
 
 export default {
   data: () => ({
+    store: useCatalogStore(),
     dialog: true,
     hiring: '',
     paymentMethod: '',
@@ -86,6 +88,7 @@ export default {
       await subsAPI.addSubscription(newSub)
       this.$emit('updt-subs', newSub)
       this.$emit('close-add-sub')
+      this.store.closeDialog()
     },
     closeAddSub () {
       this.$emit('close-add-sub')

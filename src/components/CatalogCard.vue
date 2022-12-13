@@ -3,14 +3,14 @@
     <v-row justify="center">
       <v-dialog v-model="dialog" scrollable max-width="300px">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" dark small fab v-bind="attrs" v-on="on">
+          <v-btn color="primary" dark small fab v-bind="attrs" v-on="on" @click="store.switchDialog">
             <v-icon dark>mdi-plus</v-icon>
           </v-btn>
         </template>
         <v-card>
           <v-container d-flex flex-no-wrap>
             <v-card-actions>
-              <v-btn color="primary" text @click="dialog = false">
+              <v-btn color="primary" text @click="store.switchDialog">
                 <v-icon dark>mdi-close</v-icon>
               </v-btn>
             </v-card-actions>
@@ -43,9 +43,11 @@
 
 <script>
 import catAPI from '../services/catalog.js'
+import { useCatalogStore } from '@/stores/store'
 
 export default {
   data: () => ({
+    store: useCatalogStore(),
     catalog: [],
     searchInput: '',
     name: '',
@@ -53,10 +55,12 @@ export default {
     hiring_day: '',
     unsublink: '',
     instructions: '',
-    payment_method: '',
-    dialog: false
+    payment_method: ''
   }),
   computed: {
+    dialog () {
+      return this.store.dialogState
+    },
     search () {
       return this.catalog.filter(sub => sub.name.toLowerCase().includes(this.searchInput.toLowerCase()))
     }

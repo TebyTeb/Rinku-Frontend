@@ -36,5 +36,18 @@ export const useCatalogStore = defineStore('catalog', {
     return {
       dialog: false
     }
+  },
+  getters: {
+    dialogState () {
+      return this.dialog
+    }
+  },
+  actions: {
+    switchDialog () {
+      this.dialog = !this.dialog
+    },
+    closeDialog () {
+      this.dialog = false
+    }
   }
 })
