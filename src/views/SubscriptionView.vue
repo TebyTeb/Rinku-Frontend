@@ -1,26 +1,19 @@
 <template>
   <div>
     <ProfileBar />
-    <v-container>
+    <v-container style="padding: 0px 12px; height: 80px">
       <v-card-text>
         <v-row>
-          <v-col cols="10">
+          <v-col cols="12">
             <div>
               <v-text-field label="Search" append-icon="mdi-magnify" v-model="searchInput"></v-text-field>
-            </div>
-          </v-col>
-          <v-col cols="2">
-            <div class="text-center">
-              <v-btn fab dark small color="primary">
-                <v-icon dark>mdi-sort</v-icon>
-              </v-btn>
             </div>
           </v-col>
         </v-row>
       </v-card-text>
     </v-container>
-    <SubCard v-for="(sub, idx) in search" :key="idx" :sub="sub" @delete-sub="deleteSub"/>
     <CatalogCard @show-add-sub="showAddSub"/>
+    <SubCard v-for="(sub, idx) in search" :key="idx" :sub="sub" @delete-sub="deleteSub"/>
     <AddSubCard v-if="addingSub" @close-add-sub="addingSub = false" @updt-subs="updtSubs" :sub="subToAdd" :plan="planToAdd"/>
   </div>
 </template>

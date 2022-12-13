@@ -5,10 +5,10 @@ const API = axios.create({
   baseURL: 'http://localhost:3000/api'
 })
 
-async function getSubscriptions () {
+async function getNotifications () {
   try {
     const store = useAuthStore()
-    const { data } = await API.get('/subscriptions', {
+    const { data } = await API.get('/notification', {
       headers: {
         token: store.userToken
       }
@@ -19,10 +19,10 @@ async function getSubscriptions () {
   }
 }
 
-async function addSubscription (subData) {
+async function addNotification (notData) {
   try {
     const store = useAuthStore()
-    const { data } = await API.post('/subscriptions', subData, {
+    const { data } = await API.post('/notification', notData, {
       headers: {
         token: store.userToken
       }
@@ -33,10 +33,10 @@ async function addSubscription (subData) {
   }
 }
 
-async function deleteSubscription (subId) {
+async function deleteNotification (notId) {
   try {
     const store = useAuthStore()
-    const { data } = await API.delete(`/subscriptions/${subId}`, {
+    const { data } = await API.delete(`/notification/${notId}`, {
       headers: {
         token: store.userToken
       }
@@ -48,7 +48,7 @@ async function deleteSubscription (subId) {
 }
 
 export default {
-  getSubscriptions,
-  addSubscription,
-  deleteSubscription
+  getNotifications,
+  addNotification,
+  deleteNotification
 }
