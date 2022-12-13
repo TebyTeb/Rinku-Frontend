@@ -31,7 +31,6 @@
         </div>
       </v-container>
     </v-card>
-    {{typeof notif}}
   </div>
 </template>
 

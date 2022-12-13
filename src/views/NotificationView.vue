@@ -7,7 +7,6 @@
       </v-card-text>
     </v-container>
     <NotifCard v-for="(notif, idx) in search" :key="idx" :notif="notif" @updt-notifs="updtNotifs"/>
-  {{this.notifs}}
   </div>
 </template>
 
