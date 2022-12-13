@@ -5,6 +5,14 @@
         color="white"
         @click="drawer = true"
       ></v-app-bar-nav-icon>
+      <RouterLink to="user" class="perfil" v-if="store.isLoggedIn">
+        <v-avatar size="40" class="avatar">
+          <img
+            alt="user"
+            src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg"
+          >
+        </v-avatar>
+      </RouterLink>
       <v-spacer />
       <RouterLink :to="{ name: 'home' }">
         <div class="d-flex align-center">
@@ -59,6 +67,7 @@
           </v-list-item>
           <v-list-item>
             <v-spacer />
+            <RouterLink to="user" class="perfil">
             <span>{{store.email}}</span>
             <v-avatar size="40" class="avatar">
               <img
@@ -66,6 +75,7 @@
                 src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg"
               >
             </v-avatar>
+          </RouterLink>
           </v-list-item>
           <v-divider></v-divider>
           <v-list-item v-for="(link,keys) in loggedLinks" :key="keys" class="item-hover">
@@ -174,5 +184,9 @@ export default {
 }
 .stylecolor{
   color: #6c311b;
+}
+.perfil{
+  text-decoration: none;
+  color: black;
 }
 </style>

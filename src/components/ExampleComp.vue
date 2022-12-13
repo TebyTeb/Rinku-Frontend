@@ -3,11 +3,11 @@
     <div class="tittle">
       <span>Nuestra App</span>
     </div>
-    <v-carousel interval=3000 cycle>
+    <v-carousel interval=3000 cycle height="900">
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
-        :src="item.src"
+        :src="require(`../assets/${item.src}.png`)"
         reverse-transition="fade-transition"
         transition="fade-transition"
       ></v-carousel-item>
@@ -21,16 +21,16 @@ export default {
     return {
       items: [
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+          src: 'img3'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+          src: 'img4'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+          src: 'image'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+          src: 'image2'
         }
       ]
     }

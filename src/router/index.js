@@ -7,6 +7,7 @@ import SubscriptionView from '../views/SubscriptionView.vue'
 import AboutUsViewVue from '../views/AboutUsView.vue'
 import NotificationView from '../views/NotificationView.vue'
 import FAQView from '../views/FAQView.vue'
+import UserView from '../views/UserView.vue'
 
 import { useAuthStore } from '../stores/store'
 
@@ -67,6 +68,14 @@ const routes = [
     component: FAQView,
     meta: {
       requiresAuth: false
+    }
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: UserView,
+    meta: {
+      requiresAuth: true
     }
   }
 
