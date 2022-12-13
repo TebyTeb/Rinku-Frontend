@@ -13,7 +13,7 @@
                 {{ this.notif.subscriptionid.plan.name }}
               </v-card-subtitle>
               <v-card-subtitle style="padding:0px 16px;">
-                {{ this.notif.date }}
+                Notification date: {{ new Date(this.notif.date).toLocaleDateString('es-ES') }}
               </v-card-subtitle>
             </div>
             <v-menu bottom left>
