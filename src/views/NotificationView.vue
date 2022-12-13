@@ -7,13 +7,14 @@
       </v-card-text>
     </v-container>
     <NotifCard v-for="(notif, idx) in search" :key="idx" :notif="notif" @updt-notifs="updtNotifs"/>
+  {{this.notifs}}
   </div>
 </template>
 
 <script>
 import ProfileBar from '@/components/ProfileBar.vue'
+import NotifCard from '@/components/NotifCard.vue'
 import notificAPI from '../services/notification.js'
-import NotifCard from '../components/NotifCard.vue'
 
 export default {
   components: {
