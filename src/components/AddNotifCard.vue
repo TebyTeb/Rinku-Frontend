@@ -69,7 +69,7 @@ export default {
       }
       console.log(newNotif)
       console.log(this.sub)
-      await notifAPI.addNotification()
+      await notifAPI.addNotification(newNotif)
       this.$emit('close-add-notif')
     },
     closeAddNotif () {

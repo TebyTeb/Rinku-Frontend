@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-card
     class="mx-auto my-5"
     max-width="344"
@@ -46,7 +47,7 @@
 
         <v-div class="d-flex flex-row">
           <v-div class="text-center d-flex flex-column ml-3" style="width: 60px;">
-            <v-btn icon class="mx-auto">
+            <v-btn icon class="mx-auto" @click="addingNot = true">
               <v-icon>mdi-bell</v-icon>
             </v-btn>
             <span style="font-size: 12px;">NOTIFY</span>
@@ -70,15 +71,23 @@
       </div>
     </v-expand-transition>
   </v-card>
+  <AddNotifCard v-if="addingNot" @close-add-notif="addingNot = false" :sub="sub"/>
+</div>
 </template>
 
 <script>
+import AddNotifCard from '@/components/AddNotifCard.vue'
+
 export default {
+  components: {
+    AddNotifCard
+  },
   props: {
     sub: Object
   },
   data: () => ({
-    show: false
+    show: false,
+    addingNot: false
   }),
   methods: {
     async deleteSub () {
