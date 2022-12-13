@@ -4,9 +4,10 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import SignupView from '../views/SignupView.vue'
 import SubscriptionView from '../views/SubscriptionView.vue'
-import AboutUsViewVue from '../views/AboutUsView.vue'
+import AboutUsView from '../views/AboutUsView.vue'
 import NotificationView from '../views/NotificationView.vue'
 import FAQView from '../views/FAQView.vue'
+import ProfileView from '@/views/ProfileView.vue'
 
 import { useAuthStore } from '../stores/store'
 
@@ -56,7 +57,15 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: AboutUsViewVue,
+    component: AboutUsView,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView,
     meta: {
       requiresAuth: false
     }
