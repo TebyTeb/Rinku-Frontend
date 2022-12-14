@@ -45,7 +45,7 @@ export default {
   data: () => ({
     store: useCatalogStore(),
     dialog: true,
-    hiring: '',
+    hiring: Date.now(),
     paymentMethod: '',
     notes: ''
   }),
@@ -69,7 +69,6 @@ export default {
         notes: this.notes,
         iconName: this.sub.iconName
       }
-      console.log(newSub)
       await subsAPI.addSubscription(newSub)
       this.$root.$emit('create-sub')
       this.$emit('close-add-sub')
