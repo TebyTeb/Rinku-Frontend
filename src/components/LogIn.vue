@@ -55,7 +55,7 @@ export default {
     async login () {
       const response = await API.login(this.loginData)
       if (response.error) {
-        alert('wrong username/password') // No funciona
+        alert('wrong username/password')
       } else {
         this.store.login(response.token, response.email)
         this.loginData.email = ''

@@ -7,7 +7,7 @@
           :src="per.src"
           gradient="to top right, rgba(120, 120, 120,.33), rgba(60, 60, 60,.7)"
         >
-          <v-card-title class="white--text mt-8">
+                  <v-card-title class="white--text mt-8">
             <v-avatar size="120">
               <img
                 alt="user"

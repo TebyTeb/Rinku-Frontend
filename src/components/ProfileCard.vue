@@ -87,9 +87,7 @@ export default {
         if (this.form.age !== this.profile.age) update.age = this.form.age
         if (this.form.email !== this.profile.email) update.email = this.form.email
         if (this.form.telephone !== this.profile.telephone) update.telephone = this.form.telephone
-        console.log(update)
         await userAPI.updateProfile(update)
-        console.log('update Succesful')
         this.noEdit = true
       } catch (error) {
         alert(error)
@@ -116,7 +114,7 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: opacity .2s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 </style>

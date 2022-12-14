@@ -16,7 +16,6 @@
       <v-spacer />
       <RouterLink :to="{ name: 'home' }">
         <div class="d-flex align-center">
-          <!-- Logo de la barra de tareas -->
           <v-img
             alt="Vuetify Logo"
             class="shrink mr-2"

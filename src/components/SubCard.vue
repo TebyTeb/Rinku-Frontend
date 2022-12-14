@@ -112,7 +112,6 @@ export default {
         this.plansub = e.plans
       }
     })
-    // this.plansub = this.plansub.filter(e => e.plans.name.toLowerCase().includes(this.sub.plans.name.toLowerCase()))
   }
 }
 </script>

@@ -7,12 +7,6 @@
       <p>Hello, {{profile.name}}! Want to modify your data?</p>
     </div>
     <v-container class="logger">
-    <!-- <h3>I am the profile view</h3>
-    <p>{{profile.name}}</p>
-    <p>{{profile.surname}}</p>
-    <p>{{profile.age}}</p>
-    <p>{{profile.email}}</p>
-    <p>{{profile.telephone}}</p> -->
     <ProfileCard :profile="profile"/>
     </v-container>
   </div>
