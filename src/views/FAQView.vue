@@ -18,19 +18,19 @@ export default {
     return {
       questions: [
         {
-          tittle: '¿hay suscripciones personalisadas?'
+          tittle: '¿Hay suscripciones personalizadas?'
         },
         {
-          tittle: '¿gestinan los cobros?'
+          tittle: '¿El servicio se encarga de gestionar los cobros?'
         },
         {
-          tittle: '¿venden nuestra informacion?'
+          tittle: '¿El servicio vende nuestra información?'
         },
         {
-          tittle: '¿Teneis pensado sacar una aplicacion para movil?'
+          tittle: '¿El equipo de desarollo tiene pensado sacar una aplicación para móvil?'
         },
         {
-          tittle: '¿El servicio seguira siendo gratuito?'
+          tittle: '¿El servicio seguirá siendo gratuito?'
         }
       ]
     }
