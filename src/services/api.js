@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL: 'http://localhost:3000/api'
+  baseURL: 'https://rinku-api.onrender.com/api'
 })
 
 async function login (loginData) {
