@@ -29,7 +29,7 @@
                 <v-list-item v-for="(plan, i) in sub.plans" :key="i" link>
                   <v-list-item-title @click="showAddSub(plan, sub)">{{ plan.name }}</v-list-item-title>
                   <v-list-item-icon>
-                    <v-icon v-text="''"></v-icon>
+                    <v-icon></v-icon>
                   </v-list-item-icon>
                 </v-list-item>
               </v-list-group>
