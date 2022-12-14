@@ -55,11 +55,6 @@ const routes = [
     }
   },
   {
-    path: '/notification',
-    name: 'notification',
-    component: NotificationView
-  },
-  {
     path: '/about',
     name: 'about',
     component: AboutUsView,
@@ -72,7 +67,7 @@ const routes = [
     name: 'profile',
     component: ProfileView,
     meta: {
-      requiresAuth: false
+      requiresAuth: true
     }
   },
   {

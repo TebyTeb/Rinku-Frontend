@@ -5,7 +5,7 @@
         color="white"
         @click="drawer = true"
       ></v-app-bar-nav-icon>
-      <RouterLink to="user" class="perfil" v-if="store.isLoggedIn">
+      <RouterLink :to="{name: 'profile'}" class="perfil" v-if="store.isLoggedIn">
         <v-avatar size="40" class="avatar">
           <img
             alt="user"
@@ -67,7 +67,7 @@
           </v-list-item>
           <v-list-item>
             <v-spacer />
-            <RouterLink to="user" class="perfil">
+            <RouterLink :to="{name: 'profile'}" class="perfil">
             <span>{{store.email}}</span>
             <v-avatar size="40" class="avatar">
               <img
