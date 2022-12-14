@@ -62,7 +62,7 @@
             <span style="font-size: 12px;">EDIT</span>
           </v-div>
           <v-div class="text-center d-flex flex-column mr-3" style="width: 60px;">
-            <v-btn icon class="mx-auto" @click="deleteSub">
+            <v-btn icon class="mx-auto" @click="deletingSub = true">
               <v-icon>mdi-delete</v-icon>
             </v-btn>
             <span style="font-size: 12px;">DELETE</span>
@@ -72,25 +72,30 @@
     </v-expand-transition>
   </v-card>
   <AddNotifCard v-if="addingNot" @close-add-notif="addingNot = false" :sub="sub"/>
+  <DelSubCard v-if="deletingSub" @close-card="deletingSub = false" @delete-sub="deleteSub"/>
 </div>
 </template>
 
 <script>
 import AddNotifCard from '@/components/AddNotifCard.vue'
+import DelSubCard from '@/components/DelSubCard.vue'
 
 export default {
   components: {
-    AddNotifCard
+    AddNotifCard,
+    DelSubCard
   },
   props: {
     sub: Object
   },
   data: () => ({
     show: false,
-    addingNot: false
+    addingNot: false,
+    deletingSub: false
   }),
   methods: {
     async deleteSub () {
+      this.deletingSub = false
       this.$emit('delete-sub', this.sub._id)
     }
   }

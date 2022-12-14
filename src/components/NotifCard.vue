@@ -24,21 +24,27 @@
               </template>
               <v-list>
                 <v-list-item @click="testFunction2">Edit</v-list-item>
-                <v-list-item @click="deleteNotif()">Delete</v-list-item>
+                <v-list-item @click="deletingNotif = true">Delete</v-list-item>
               </v-list>
             </v-menu>
           </div>
         </div>
       </v-container>
     </v-card>
+    <DelNotifCard v-if="deletingNotif" @close-card="deletingNotif = false" @delete-notif="deleteNotif"/>
   </div>
 </template>
 
 <script>
+import DelNotifCard from '@/components/DelNotifCard.vue'
 import notifAPI from '../services/notification.js'
 
 export default {
+  components: {
+    DelNotifCard
+  },
   data: () => ({
+    deletingNotif: false,
     items: [
       { title: 'Edit' },
       { title: 'Delete' }

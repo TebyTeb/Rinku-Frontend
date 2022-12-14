@@ -86,7 +86,7 @@ export default {
       }
       console.log(newSub)
       await subsAPI.addSubscription(newSub)
-      this.$emit('updt-subs', newSub)
+      this.$emit('updt-subs')
       this.$emit('close-add-sub')
       this.store.closeDialog()
     },

@@ -58,8 +58,8 @@ export default {
       this.planToAdd = plan
       this.subToAdd = sub
     },
-    updtSubs (newSub) {
-      this.subs.push(newSub)
+    async updtSubs () {
+      this.subs = await subsAPI.getSubscriptions()
     },
     async deleteSub (subId) {
       await subsAPI.deleteSubscription(subId)
