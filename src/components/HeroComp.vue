@@ -5,8 +5,8 @@
         >Bienvenido/a a nuestro servicio de gestión de subcripciones</span
       >
       <div class="logandsign">
-        <RouterLink :to="{ name: 'auth'}"><v-btn color="warning" dark> Create an account </v-btn></RouterLink>
-        <RouterLink :to="{ name: 'auth'}" class="sign">Already a member?</RouterLink>
+        <RouterLink to="signup"><v-btn color="warning" dark> Create an account </v-btn></RouterLink>
+        <RouterLink to="login" class="sign">Already a member?</RouterLink>
 
       </div>
     </div>
