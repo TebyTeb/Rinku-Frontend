@@ -11,44 +11,94 @@
           <v-text-field
             v-model="form.name"
             label="Name"
-            readonly
+            :readonly="noEdit"
           ></v-text-field>
           <v-text-field
             v-model="form.surname"
             label="Surname"
-            readonly
+            :readonly="noEdit"
           ></v-text-field>
           <v-text-field
             v-model="form.age"
             label="Age"
-            readonly
+            :readonly="noEdit"
           ></v-text-field>
           <v-text-field
             v-model="form.email"
             label="Email Address"
-            readonly
+            :readonly="noEdit"
           ></v-text-field>
           <v-text-field
             v-model="form.telephone"
             label="Phone Number"
-            readonly
+            :readonly="noEdit"
           ></v-text-field>
         </v-card-text>
       </v-card>
         </v-layout>
-        <v-card-actions class="d-flex flex-column mt-6">
-          <v-btn disabled rounded color="primary" class="px-8">
-            Edit
-          </v-btn>
-        </v-card-actions>
+        <transition
+          mode="out-in"
+          name="fade"
+        >
+          <v-card-actions
+            v-if="noEdit === true"
+            key="edit"
+            class="d-flex flex-column mt-6"
+          >
+            <v-btn rounded color="primary" class="px-8" @click="noEdit = false">
+              Edit
+            </v-btn>
+          </v-card-actions>
+          <v-card-actions
+            v-else
+            key="action"
+            class="d-flex mt-6"
+          >
+            <v-btn rounded color="error" class="px-6" @click="resetDefault">
+              cancel
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn rounded color="primary" class="px-8" @click="updateUser">
+              send
+            </v-btn>
+          </v-card-actions>
+        </transition>
   </v-container>
 </template>
 
 <script>
+import userAPI from '../services/user'
+
 export default {
   pageTitle: 'My Profile',
   props: {
     profile: Object
+  },
+  data: () => ({
+    form: {},
+    noEdit: true
+  }),
+  methods: {
+    async updateUser () {
+      try {
+        const update = {}
+        if (this.form.name !== this.profile.name) update.name = this.form.name
+        if (this.form.surname !== this.profile.surname) update.surname = this.form.surname
+        if (this.form.age !== this.profile.age) update.age = this.form.age
+        if (this.form.email !== this.profile.email) update.email = this.form.email
+        if (this.form.telephone !== this.profile.telephone) update.telephone = this.form.telephone
+        console.log(update)
+        await userAPI.updateProfile(update)
+        console.log('update Succesful')
+        this.noEdit = true
+      } catch (error) {
+        alert(error)
+      }
+    },
+    resetDefault () {
+      this.form = Object.assign({}, this.profile)
+      this.noEdit = true
+    }
   },
   watch: {
     profile: {
@@ -58,11 +108,15 @@ export default {
         this.form = Object.assign({}, val)
       }
     }
-  },
-  data () {
-    return {
-      form: {}
-    }
   }
 }
 </script>
+
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>

@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
 .view {
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s;
