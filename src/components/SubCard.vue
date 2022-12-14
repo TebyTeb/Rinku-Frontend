@@ -45,29 +45,29 @@
           <p v-if="sub.notes !== ''"><strong>Notes: </strong>{{ sub.notes }}</p>
         </v-card-text>
 
-        <v-div class="d-flex flex-row">
-          <v-div class="text-center d-flex flex-column ml-3" style="width: 60px;">
+        <div class="d-flex flex-row">
+          <div class="text-center d-flex flex-column ml-3" style="width: 60px;">
             <v-btn icon class="mx-auto" @click="addingNot = true">
               <v-icon>mdi-bell</v-icon>
             </v-btn>
             <span style="font-size: 12px;">NOTIFY</span>
-          </v-div>
+          </div>
 
           <v-spacer></v-spacer>
 
-          <v-div class="text-center d-flex flex-column" style="width: 60px;">
+          <div class="text-center d-flex flex-column" style="width: 60px;">
             <v-btn icon class="mx-auto"  @click="editsub = true">
               <v-icon>mdi-pencil</v-icon>
             </v-btn>
             <span style="font-size: 12px;">EDIT</span>
-          </v-div>
-          <v-div class="text-center d-flex flex-column mr-3" style="width: 60px;">
+          </div>
+          <div class="text-center d-flex flex-column mr-3" style="width: 60px;">
             <v-btn icon class="mx-auto" @click="deletingSub = true">
               <v-icon>mdi-delete</v-icon>
             </v-btn>
             <span style="font-size: 12px;">DELETE</span>
-          </v-div>
-        </v-div>
+          </div>
+        </div>
       </div>
     </v-expand-transition>
   </v-card>
@@ -112,7 +112,6 @@ export default {
         this.plansub = e.plans
       }
     })
-    // this.plansub = this.plansub.filter(e => e.plans.name.toLowerCase().includes(this.sub.plans.name.toLowerCase()))
   }
 }
 </script>

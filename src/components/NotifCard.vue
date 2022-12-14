@@ -44,11 +44,7 @@ export default {
     DelNotifCard
   },
   data: () => ({
-    deletingNotif: false,
-    items: [
-      { title: 'Edit' },
-      { title: 'Delete' }
-    ]
+    deletingNotif: false
   }),
   props: {
     notif: Object
@@ -56,7 +52,6 @@ export default {
   methods: {
     async deleteNotif () {
       await notifAPI.deleteNotification(this.notif._id)
-      console.log(this.notif._id)
       this.$emit('updt-notifs', this.notif._id)
     },
     testFunction2 () {

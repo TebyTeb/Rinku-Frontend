@@ -49,13 +49,7 @@ export default {
   data: () => ({
     store: useCatalogStore(),
     catalog: [],
-    searchInput: '',
-    name: '',
-    plan: '',
-    hiring_day: '',
-    unsublink: '',
-    instructions: '',
-    payment_method: ''
+    searchInput: ''
   }),
   computed: {
     dialog () {

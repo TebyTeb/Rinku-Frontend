@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <v-main>
-      <!-- Vista del View -->
       <navBar />
       <transition
         mode="out-in"
@@ -22,10 +21,7 @@ export default {
   components: {
     navBar,
     footerBar
-  },
-  data: () => ({
-    //
-  })
+  }
 }
 </script>
 
@@ -36,7 +32,7 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 </style>

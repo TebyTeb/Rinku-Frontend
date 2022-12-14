@@ -1,13 +1,13 @@
 <template>
   <div class="format">
-    <div v-for="per in miembros" :key="per" class="person">
+    <div v-for="per, idx in miembros" :key="idx" class="person">
       <v-card>
         <v-img
           height="200px"
           :src="per.src"
           gradient="to top right, rgba(120, 120, 120,.33), rgba(60, 60, 60,.7)"
         >
-          <v-card-title class="white--text mt-8">
+                  <v-card-title class="white--text mt-8">
             <v-avatar size="120">
               <img
                 alt="user"
@@ -21,8 +21,8 @@
         <v-card-text>
           <v-timeline align-top dense>
             <v-timeline-item
-              v-for="message in per.messages"
-              :key="message"
+              v-for="message, idx in per.messages"
+              :key="idx"
               :color="message.color"
               small
             >
