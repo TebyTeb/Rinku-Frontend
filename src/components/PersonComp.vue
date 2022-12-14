@@ -1,6 +1,6 @@
 <template>
   <div class="format">
-    <div v-for="per in miembros" :key="per" class="person">
+    <div v-for="per, idx in miembros" :key="idx" class="person">
       <v-card>
         <v-img
           height="200px"
@@ -21,8 +21,8 @@
         <v-card-text>
           <v-timeline align-top dense>
             <v-timeline-item
-              v-for="message in per.messages"
-              :key="message"
+              v-for="message, idx in per.messages"
+              :key="idx"
               :color="message.color"
               small
             >

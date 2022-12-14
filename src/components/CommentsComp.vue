@@ -4,7 +4,7 @@
       <span>Reseñas</span>
     </div>
     <v-carousel v-model="model" height="300" hide-delimiters show-arrows-on-hover>
-      <v-carousel-item v-for="(mensaje) in mensajes" :key="mensaje" >
+      <v-carousel-item v-for="mensaje, idx in mensajes" :key="idx" >
         <v-card class="mx-auto format" color="#26c6da" dark max-width="400" card-border-radius="100px">
           <v-card-title>
             <v-icon large left> mdi-twitter </v-icon>

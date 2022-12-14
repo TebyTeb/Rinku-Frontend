@@ -4,7 +4,7 @@
       <h1>FAQ</h1>
       <span>Frequently Asked Questions</span>
     </div>
-    <questionComp v-for="info in questions" :key="info" :data=info />
+    <questionComp v-for="info, idx in questions" :key="idx" :data=info />
   </div>
 </template>
 
