@@ -47,8 +47,23 @@ async function deleteSubscription (subId) {
   }
 }
 
+async function updateSubscription (subId, upsub) {
+  try {
+    const store = useAuthStore()
+    const { data } = await API.put(`/subscriptions/${subId}`, upsub, {
+      headers: {
+        token: store.userToken
+      }
+    })
+    return data
+  } catch (error) {
+    return { error: error.message }
+  }
+}
+
 export default {
   getSubscriptions,
   addSubscription,
-  deleteSubscription
+  deleteSubscription,
+  updateSubscription
 }

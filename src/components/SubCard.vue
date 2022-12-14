@@ -56,13 +56,13 @@
           <v-spacer></v-spacer>
 
           <v-div class="text-center d-flex flex-column" style="width: 60px;">
-            <v-btn icon class="mx-auto">
+            <v-btn icon class="mx-auto"  @click="editsub = true">
               <v-icon>mdi-pencil</v-icon>
             </v-btn>
             <span style="font-size: 12px;">EDIT</span>
           </v-div>
           <v-div class="text-center d-flex flex-column mr-3" style="width: 60px;">
-            <v-btn icon class="mx-auto" @click="deleteSub">
+            <v-btn icon class="mx-auto" @click="deletingSub = true">
               <v-icon>mdi-delete</v-icon>
             </v-btn>
             <span style="font-size: 12px;">DELETE</span>
@@ -72,27 +72,47 @@
     </v-expand-transition>
   </v-card>
   <AddNotifCard v-if="addingNot" @close-add-notif="addingNot = false" :sub="sub"/>
+  <EditSubCard v-if="editsub" @close-add-notif="editsub = false" :sub="sub" :plans="plansub"/>
+  <DelSubCard v-if="deletingSub" @close-card="deletingSub = false" @delete-sub="deleteSub"/>
 </div>
 </template>
 
 <script>
 import AddNotifCard from '@/components/AddNotifCard.vue'
+import EditSubCard from '../components/EditSubCard.vue'
+import catLog from '../services/catalog.js'
+import DelSubCard from '@/components/DelSubCard.vue'
 
 export default {
   components: {
-    AddNotifCard
+    AddNotifCard,
+    EditSubCard,
+    DelSubCard
   },
   props: {
     sub: Object
   },
   data: () => ({
     show: false,
-    addingNot: false
+    addingNot: false,
+    editsub: false,
+    plansub: [],
+    deletingSub: false
   }),
   methods: {
     async deleteSub () {
+      this.deletingSub = false
       this.$emit('delete-sub', this.sub._id)
     }
+  },
+  async created () {
+    const catalog = await catLog.getCatalog()
+    catalog.forEach(e => {
+      if (e.name === this.sub.name) {
+        this.plansub = e.plans
+      }
+    })
+    // this.plansub = this.plansub.filter(e => e.plans.name.toLowerCase().includes(this.sub.plans.name.toLowerCase()))
   }
 }
 </script>

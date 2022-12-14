@@ -19,6 +19,20 @@ async function getProfile () {
   }
 }
 
+async function updateProfile (update) {
+  try {
+    const store = useAuthStore()
+    const { data } = await API.put('/profile', update, {
+      headers: {
+        token: store.userToken
+      }
+    })
+    return data
+  } catch (error) {
+    return { error: error.message }
+  }
+}
 export default {
-  getProfile
+  getProfile,
+  updateProfile
 }
