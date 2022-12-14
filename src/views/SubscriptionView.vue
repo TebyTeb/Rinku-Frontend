@@ -13,7 +13,7 @@
       </v-card-text>
     </v-container>
     <CatalogCard @show-add-sub="showAddSub"/>
-    <SubCard v-for="(sub, idx) in search" :key="idx" :sub="sub" @delete-sub="deleteSub"/>
+    <SubCard v-for="(sub, idx) in search" :key="idx" :sub="sub" @delete-sub="deleteSub" :met="upData"/>
     <AddSubCard v-if="addingSub" @close-add-sub="addingSub = false" @updt-subs="updtSubs" :sub="subToAdd" :plan="planToAdd"/>
   </div>
 </template>
@@ -64,6 +64,10 @@ export default {
     async deleteSub (subId) {
       await subsAPI.deleteSubscription(subId)
       this.subs = this.subs.filter(sub => sub._id !== subId)
+    },
+    async upData () {
+      const subs = await subsAPI.getSubscriptions()
+      this.subs = subs
     }
   }
 }
