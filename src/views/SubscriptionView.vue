@@ -69,6 +69,14 @@ export default {
       const subs = await subsAPI.getSubscriptions()
       this.subs = subs
     }
+  },
+  mounted () {
+    this.$root.$on('update-subs', () => {
+      this.upData()
+    })
+    this.$root.$on('create-sub', () => {
+      this.upData()
+    })
   }
 }
 </script>

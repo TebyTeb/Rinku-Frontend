@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import updateSub from '../services/subscription.js'
+import subsAPI from '../services/subscription.js'
 export default {
   data () {
     return {
@@ -89,7 +89,8 @@ export default {
         payment_method: this.pay,
         notes: this.mens
       }
-      await updateSub.updateSubscription(this.sub._id, upsub)
+      await subsAPI.updateSubscription(this.sub._id, upsub)
+      this.$root.$emit('update-subs')
       this.$emit('close-add-notif')
     }
   },
