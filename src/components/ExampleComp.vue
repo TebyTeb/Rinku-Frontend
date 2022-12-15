@@ -2,8 +2,9 @@
   <div>
     <div class="tittle">
       <span>Nuestra App</span>
+      <hr class="mx-12 divider" color="orange"/>
     </div>
-    <v-carousel interval=3000 cycle height="900">
+    <v-carousel height="900">
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
@@ -21,9 +22,6 @@ export default {
     return {
       items: [
         {
-          src: 'img3'
-        },
-        {
           src: 'img4'
         },
         {
@@ -40,8 +38,12 @@ export default {
 
 <style lang="scss" scoped>
 .tittle {
+  font-family: 'Mukta', sans-serif;
   font-size: 40px;
   text-align: center;
   margin-bottom: 20px;
+}
+.divider {
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
 }
 </style>
