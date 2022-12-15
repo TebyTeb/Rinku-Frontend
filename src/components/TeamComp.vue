@@ -5,7 +5,7 @@
       <span class="leter">BAIT</span>
       <span class="leter">Monkey Team</span>
     </div>
-    <hr class="mx-12 divider" color="orange"/>
+    <hr class="mx-10 divider" color="orange"/>
     <v-card v-for="per, idx in team" :key="idx" class="mx-auto usercard" max-width="344">
       <v-img
         :src="require(`../assets/${per.imgsrc}.jpg`)"

@@ -2,7 +2,7 @@
   <div class="cont">
     <div class="titulo">
       <span>Reseñas</span>
-      <hr class="mx-12 divider" color="orange"/>
+      <hr class="mx-10 divider" color="orange"/>
     </div>
     <v-carousel v-model="model" height="300" hide-delimiters show-arrows-on-hover>
       <v-carousel-item v-for="mensaje, idx in mensajes" :key="idx" >

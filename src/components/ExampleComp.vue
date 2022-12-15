@@ -2,7 +2,7 @@
   <div>
     <div class="tittle">
       <span>Nuestra App</span>
-      <hr class="mx-12 divider" color="orange"/>
+      <hr class="mx-10 divider" color="orange"/>
     </div>
     <v-carousel height="900">
       <v-carousel-item
