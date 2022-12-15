@@ -64,9 +64,9 @@ export default {
     return {
       dialog: true,
       nameplans: [],
-      plan: '',
-      pay: '',
-      mens: ''
+      plan: this.sub.plan,
+      pay: this.sub.payment_method,
+      mens: this.sub.notes
     }
   },
   props: {
