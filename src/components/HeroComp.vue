@@ -38,7 +38,7 @@ export default {
 .container {
   // background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 1));
   background: linear-gradient(0deg, rgba(255,255,255,) 10%, rgba(0,0,0,0.7) 65%);
-  height: 33rem;
+  height: 36rem;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -46,6 +46,8 @@ export default {
   flex-direction: column;
 }
 .hero {
+  font-family: 'Mukta', sans-serif;
+  font-size: 40px;
   color: white;
   margin: 0 1.5rem;
   margin-top: 1.5rem;
@@ -54,7 +56,7 @@ export default {
   color: white;
   margin: 0 1.5rem;
   margin-top: 0.5rem;
-  font-weight: lighter;
+  font-weight: normal;
   font-size: medium;
 }
 .logandsign {
