@@ -38,7 +38,7 @@ export default {
   background-color: #DD7225;
   color: white;
   width: 100%;
-  height: 70px;
+  height: 72px;
   border-radius: 0 0 5rem 0;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.59);
 }
