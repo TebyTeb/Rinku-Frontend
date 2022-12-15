@@ -4,7 +4,7 @@
       class="text-center"
       cols="12"
     >
-      {{ new Date().getFullYear() }} — <strong>Rinku</strong>
+    &#169;{{ new Date().getFullYear() }} <strong>BAIT monkey team</strong> all rights reserved.
     </v-col>
   </v-footer>
 </template>
