@@ -77,10 +77,10 @@ export default {
 
 <style lang="scss" scoped>
 .cont {
-  height: 500px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .tittle {
