@@ -3,7 +3,7 @@
     <v-layout column>
       <v-card>
         <v-card-text>
-          <v-flex class="mb-4">
+          <v-flex class="mb-4 profile">
             <v-avatar size="96" class="mr-4">
               <img src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg" alt="Avatar">
             </v-avatar>
@@ -54,11 +54,11 @@
             key="action"
             class="d-flex mt-6"
           >
-            <v-btn rounded color="error" class="px-6" @click="resetDefault">
+            <v-btn rounded color="primary" class="px-6" @click="resetDefault">
               cancel
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn rounded color="primary" class="px-8" @click="updateUser">
+            <v-btn rounded outlined color="primary" class="px-8" @click="updateUser">
               send
             </v-btn>
           </v-card-actions>
@@ -116,5 +116,13 @@ export default {
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+.profile {
+  padding: 5px;
+  background-color: #FAECD5;
+  border-radius: 10px;
+}
+img {
+  border: 3px solid #DD7225;
 }
 </style>
