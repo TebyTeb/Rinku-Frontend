@@ -10,7 +10,31 @@
           </v-btn>
         </template>
 
-        <v-card>
+        <v-card v-if="subs.length === 0">
+          <v-row>
+            <v-dialog v-model="dialog" persistent max-width="500px">
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5 mx-auto">Add Notification</span>
+                </v-card-title>
+
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <p class="mx-auto my-3">Add at least one subscription first</p>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn color="primary" rounded dark small class="mx-auto mb-5 px-4" @click="store.switchDialog">
+                    close
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-row>
+        </v-card>
+        <v-card v-else>
           <v-row>
             <v-dialog v-model="dialog" persistent max-width="500px">
               <v-card>
@@ -88,8 +112,11 @@ export default {
     subPlan: '',
     date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
 
-    quantity: '',
-    period: ''
+    quantity: '1',
+    period: 'days',
+    rules: {
+      required: v => !!v || 'This field is required.'
+    }
   }),
   computed: {
     dialog () {
