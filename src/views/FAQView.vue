@@ -28,7 +28,7 @@ export default {
         },
         {
           tittle: 'Is Rinku selling our info?',
-          text: 'No vendemos ninguna informacion personal de nuestros usuarios y por obligacion de la ley de proteccion de datos estamos en el deber de asegurar la seguridad de nuestros usuarios'
+          text: 'We don\'t sell any personal info from our users, we only use statistical data gathered from our database that doesn\'t expose your personal data, in due to the local laws.'
         },
         {
           tittle: 'Will Rinku be available in mobile platforms?',
