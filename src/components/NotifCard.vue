@@ -16,17 +16,20 @@
                 Notification date: {{ new Date(this.notif.date).toLocaleDateString('es-ES') }}
               </v-card-subtitle>
             </div>
-            <v-menu bottom left>
+              <v-btn icon @click="deletingNotif = true">
+                    <v-icon >mdi-close-thick</v-icon>
+              </v-btn>
+            <!-- <v-menu bottom left>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn icon v-bind="attrs" v-on="on">
-                  <v-icon>mdi-dots-vertical</v-icon>
+                  <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item @click="testFunction2">Edit</v-list-item>
                 <v-list-item @click="deletingNotif = true">Delete</v-list-item>
               </v-list>
-            </v-menu>
+            </v-menu> -->
           </div>
         </div>
       </v-container>
