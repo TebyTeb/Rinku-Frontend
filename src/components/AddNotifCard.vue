@@ -65,9 +65,9 @@ export default {
   data: () => ({
     radioGroup: 'period',
     dialog: true,
-    date: '',
-    quantity: '',
-    period: ''
+    date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+    quantity: '1',
+    period: 'days'
   }),
   props: {
     sub: Object
@@ -78,12 +78,9 @@ export default {
 
       if (this.radioGroup === 'period' && this.period === 'days') {
         this.date = nextPayment.setDate(nextPayment.getDate() - this.quantity)
-
-      }
-      else if (this.radioGroup === 'period' && this.period === 'weeks') {
+      } else if (this.radioGroup === 'period' && this.period === 'weeks') {
         this.date = nextPayment.setDate(nextPayment.getDate() - this.quantity * 7)
-      }
-      else if (this.radioGroup === 'period' && this.period === 'months') {
+      } else if (this.radioGroup === 'period' && this.period === 'months') {
         this.date = nextPayment.setMonth(nextPayment.getMonth() - this.quantity)
       }
 
@@ -94,7 +91,7 @@ export default {
       await notifAPI.addNotification(newNotif)
       this.$emit('close-add-notif')
     },
-    closeAddNotif() {
+    closeAddNotif () {
       this.$emit('close-add-notif')
     }
   }
