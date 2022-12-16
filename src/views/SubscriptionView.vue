@@ -1,18 +1,20 @@
 <template>
   <div>
     <ProfileBar />
-    <v-container style="padding: 0px 12px; height: 80px">
+    <CatalogCard class="pt-8" @show-add-sub="showAddSub"/>
+
+    <img class="mt-10" style="width: 100%" v-if="subs.length === 0" src="../assets/emptyViewImages/noSubs.jpg">
+    <p class="ml-0 mt-3 text-center" style="font-size: 18px; width: 100vw;" v-if="subs.length === 0">You have no subs registered yet!</p>
+
+    <v-container v-if="subs.length > 3" style="padding: 0px 10px; height: 80px">
       <v-card-text>
         <v-row>
           <v-col cols="12">
-            <div>
-              <v-text-field label="Search" append-icon="mdi-magnify" v-model="searchInput"></v-text-field>
-            </div>
+            <v-text-field label="Search your subscriptions" append-icon="mdi-magnify" v-model="searchInput"></v-text-field>
           </v-col>
         </v-row>
       </v-card-text>
     </v-container>
-    <CatalogCard @show-add-sub="showAddSub"/>
     <SubCard v-for="(sub, idx) in search" :key="idx" :sub="sub" @delete-sub="deleteSub" :met="upData"/>
     <AddSubCard v-if="addingSub" @close-add-sub="addingSub = false" @updt-subs="updtSubs" :sub="subToAdd" :plan="planToAdd"/>
   </div>

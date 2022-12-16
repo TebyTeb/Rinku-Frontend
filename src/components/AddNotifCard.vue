@@ -73,12 +73,12 @@ export default {
     sub: Object
   },
   methods: {
-    async addNotif() {
-
+    async addNotif () {
       const nextPayment = new Date(this.sub.nextPayment)
 
       if (this.radioGroup === 'period' && this.period === 'days') {
         this.date = nextPayment.setDate(nextPayment.getDate() - this.quantity)
+
       }
       else if (this.radioGroup === 'period' && this.period === 'weeks') {
         this.date = nextPayment.setDate(nextPayment.getDate() - this.quantity * 7)
