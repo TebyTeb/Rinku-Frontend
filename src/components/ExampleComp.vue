@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="tittle">
-      <span>Nuestra App</span>
+      <span>What's Inside</span>
       <hr class="mx-10 divider" color="orange"/>
     </div>
     <v-carousel
