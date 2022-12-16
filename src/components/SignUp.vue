@@ -22,6 +22,7 @@
         label="Age"
         :rules="[rules.required]"
         type="number"
+        hide-spin-buttons
         v-model="newUser.age"
       ></v-text-field>
       <v-text-field
@@ -36,7 +37,8 @@
         prepend-inner-icon="mdi-cellphone"
         label="Phone"
         :rules="[rules.required, rules.phone]"
-        type="tel"
+        type="number"
+        hide-spin-buttons
         v-model="newUser.telephone"
       ></v-text-field>
       <v-text-field
@@ -94,7 +96,7 @@ export default {
           return pattern.test(value) || 'Invalid e-mail.'
         },
         pwdCheck: v => v === this.newUser.password || 'passwords must match',
-        phone: v => !!v || 'Wrong phone format'
+        phone: v => v.length === 9 || 'Wrong phone format'
       },
       newUser: {
         name: null,
