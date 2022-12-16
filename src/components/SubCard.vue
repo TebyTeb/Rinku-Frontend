@@ -2,16 +2,20 @@
   <div>
     <v-card class="mx-auto my-5" max-width="344" prepend-icon="mdi-bell" title="twitter" color="orange lighten-5">
       <v-container d-flex flex-no-wrap justify-space-between @click="show = !show">
-        <img :src="require(`../assets/logos/${this.sub.iconName}.png`)">
-        <div>
-          <v-card-title>
-            {{ this.sub.name }}
-          </v-card-title>
-          <v-card-subtitle>
-            {{ this.sub.plan.name }}
-          </v-card-subtitle>
+        <div class="inner" >
+      <img
+      class="img"
+      :src="require(`../assets/logos/${this.sub.iconName}.png`)">
+          <div>
+            <v-card-title>
+              {{ this.sub.name }}
+            </v-card-title>
+            <v-card-subtitle>
+              {{ this.sub.plan.name }}
+            </v-card-subtitle>
+          </div>
         </div>
-        <v-card-actions>
+    <v-card-actions>
           <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
         </v-card-actions>
       </v-container>
@@ -106,14 +110,15 @@ export default {
 </script>
 
 <style scoped>
-img {
-  width: 75px;
-}
-
-;
-
-.card {
-  display: flex;
-  flex-wrap: nowrap;
-}
+  .img {
+    max-width: 100%;
+    height: 65px;
+  }
+  .inner {
+    display: flex;
+  }
+  .card {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 </style>
