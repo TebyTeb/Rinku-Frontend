@@ -17,7 +17,7 @@
                     hint="This data will be taken to calculate payment days and  total paid amounts"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                  <v-select :items="['Credit Card', 'Bedit Card', 'PayPall', 'PaySave Card', 'Prepaid Card', 'Others']" label="Payment method" v-model="paymentMethod"></v-select>
+                  <v-select :items="['Credit/Debit Card', 'PayPal', 'PaySafe Card', 'Prepaid Card', 'Others']" label="Payment method" v-model="paymentMethod"></v-select>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field label="Notes" v-model="notes"></v-text-field>
