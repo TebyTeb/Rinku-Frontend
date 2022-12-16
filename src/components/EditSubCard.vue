@@ -22,12 +22,7 @@
                     ></v-select>
                   </v-col>
                 <v-col cols="12" sm="6" md="4">
-                  <v-text-field
-                    type="text"
-                    label="payment method"
-                    v-model="pay"
-                    :placeholder="sub.payment_method"
-                  ></v-text-field>
+                  <v-select :items="['Credit/Debit Card', 'PayPal', 'PaySafe Card', 'Prepaid Card', 'Others']" label="Payment method" v-model="pay"></v-select>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field
