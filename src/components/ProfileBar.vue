@@ -19,10 +19,13 @@
       <v-icon>mdi-calendar</v-icon>
     </v-btn>
 
-    <v-btn value="balance">
-      <span>Balance</span>
-      <v-icon>mdi-cash</v-icon>
-    </v-btn>
+    <RouterLink :to="{ name: 'balance' }" style="text-decoration: none; color: inherit; height: 100%;">
+      <v-btn value="balance">
+        <span>Balance</span>
+        <v-icon>mdi-cash</v-icon>
+      </v-btn>
+    </RouterLink>
+
   </v-bottom-navigation>
 </template>
 
