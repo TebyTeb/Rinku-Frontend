@@ -8,14 +8,18 @@
     color="orange lighten-5"
   >
   <v-container d-flex flex-no-wrap justify-space-between>
-    <img :src="require(`../assets/logos/${this.sub.iconName}.png`)">
-    <div>
-      <v-card-title>
-        {{ this.sub.name }}
-      </v-card-title>
-      <v-card-subtitle>
-        {{ this.sub.plan.name }}
-      </v-card-subtitle>
+    <div class="inner" >
+      <img
+      class="img"
+      :src="require(`../assets/logos/${this.sub.iconName}.png`)">
+      <div>
+        <v-card-title>
+          {{ this.sub.name }}
+        </v-card-title>
+        <v-card-subtitle>
+          {{ this.sub.plan.name }}
+        </v-card-subtitle>
+      </div>
     </div>
     <v-card-actions>
       <v-btn
@@ -117,9 +121,13 @@ export default {
 </script>
 
 <style scoped>
-  img {
-    width: 75px;
-  };
+  .img {
+    max-width: 100%;
+    height: 65px;
+  }
+  .inner {
+    display: flex;
+  }
   .card {
     display: flex;
     flex-wrap: nowrap;
