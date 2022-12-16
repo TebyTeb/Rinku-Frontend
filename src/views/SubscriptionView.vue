@@ -4,7 +4,7 @@
     <CatalogCard class="pt-8" @show-add-sub="showAddSub"/>
 
     <img class="mt-10" style="width: 100%" v-if="subs.length === 0" src="../assets/emptyViewImages/noSubs.jpg">
-    <p class="ml-3 mt-3 mx-auto" style="font-size: 18px; width: 100vw;" v-if="subs.length === 0">You have no subs registered yet!:</p>
+    <p class="ml-0 mt-3 text-center" style="font-size: 18px; width: 100vw;" v-if="subs.length === 0">You have no subs registered yet!</p>
 
     <v-container v-if="subs.length > 3" style="padding: 0px 10px; height: 80px">
       <v-card-text>
