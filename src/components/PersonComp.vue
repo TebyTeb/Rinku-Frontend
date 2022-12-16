@@ -7,14 +7,17 @@
           :src="per.src"
           gradient="to top right, rgba(120, 120, 120,.33), rgba(60, 60, 60,.7)"
         >
-                  <v-card-title class="white--text mt-8">
+          <v-card-title class="white--text mt-8 d-flex">
             <v-avatar size="120">
               <img
                 alt="user"
                 :src="require(`../assets/${per.imgsrc}.jpg`)"
               />
             </v-avatar>
-            <p class="name">{{per.name}}</p>
+            <div class="name">
+            <span>{{per.name}}</span>
+            <span> {{per.surname}}</span>
+            </div>
           </v-card-title>
         </v-img>
 
@@ -46,7 +49,8 @@ export default {
     return {
       miembros: [
         {
-          name: 'Bárbara Segura',
+          name: 'Bárbara',
+          surname: 'Segura',
           imgsrc: 'barbara',
           src: 'https://images2.minutemediacdn.com/image/upload/c_fill,w_2160,ar_16:9,f_auto,q_auto,g_auto/shape%2Fcover%2Fsport%2Fdataimagejpegbase649j4QBsRXhpZgAASUkqAAgAAAADADEBA-1ffd7d873a73148434eea221fbb605cb.jpg',
           messages: [
@@ -59,18 +63,19 @@ export default {
             },
             {
               tittle: 'Hobbies',
-              message: 'Moltres',
+              message: 'Drawing, Digital Illustration, League of Legends, Anime',
               color: 'orange darken-1'
             },
             {
-              tittle: 'Social',
-              message: 'Twitter, Facebook, Instagram, TikTok, ...',
+              tittle: 'Github',
+              message: '@BarbaraSegura',
               color: 'orange darken-1'
             }
           ]
         },
         {
-          name: 'Alejandro Cruz',
+          name: 'Alejandro',
+          surname: 'Cruz',
           imgsrc: 'alex2',
           src: 'https://64.media.tumblr.com/a24af16e0c48198c06a10aa1a26b9037/8e3a6ad7eb3f1fbb-ac/s2048x3072/5aba5b1e81f5938859fbda70c8b65cb88ce8b32c.jpg',
           messages: [
@@ -83,18 +88,19 @@ export default {
             },
             {
               tittle: 'Hobbies',
-              message: 'Ralts',
+              message: 'Films & Series, Anime, Videogames, Board Games',
               color: 'orange darken-1'
             },
             {
-              tittle: 'Social',
-              message: 'holiwi',
+              tittle: 'Github',
+              message: '@AlxMen',
               color: 'orange darken-1'
             }
           ]
         },
         {
-          name: 'Iratze Loro',
+          name: 'Iratze',
+          surname: 'Eizaguirre',
           imgsrc: 'iratze',
           src: 'https://img.wattpad.com/face9eb0f05419a862d7d657faac723240902461/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f53633373554f5a5f3071695458773d3d2d3836353839353234382e313630353839393130373436653131363538383533373137343430322e706e67?s=fit&w=720&h=720',
           messages: [
@@ -107,18 +113,19 @@ export default {
             },
             {
               tittle: 'Hobbies',
-              message: 'Jirachi',
+              message: 'Drawing, Anime, Puzzles, Programming',
               color: 'orange darken-1'
             },
             {
-              tittle: 'Social',
-              message: 'Twitter, Facebook, Instagram, TikTok, ...',
+              tittle: 'Github',
+              message: '@IraEiza',
               color: 'orange darken-1'
             }
           ]
         },
         {
-          name: 'Esteban Ojeda',
+          name: 'Esteban',
+          surname: 'Hernández',
           imgsrc: 'teby',
           src: 'https://images5.alphacoders.com/104/1043840.png',
           messages: [
@@ -131,12 +138,12 @@ export default {
             },
             {
               tittle: 'Hobbies',
-              message: 'Charmander',
+              message: 'Motorcycles, Videogames, Films & Series, Roleplaying games',
               color: 'orange darken-1'
             },
             {
-              tittle: 'Social',
-              message: 'Twitter, Facebook, Instagram, TikTok, ...',
+              tittle: 'Github',
+              message: '@TebyTeb',
               color: 'orange darken-1'
             }
           ]
@@ -151,6 +158,8 @@ export default {
 .name {
   font-size: 30px;
   margin-left: 25px;
+  display: flex;
+  flex-direction: column;
 }
 .format{
   display: flex;

@@ -2,10 +2,7 @@
   <div>
     <div class="def">
       <h1>About Us</h1>
-      <p>
-        Rinku es un servicio para gestionar los gastos que un usuario tiene con las distintas subscripciones
-        que haya adquirido o vaya adquiriendo.
-      </p>
+      <hr class="mx-7 divider" color="orange"/>
     </div>
     <personComp />
   </div>
@@ -24,5 +21,9 @@ export default {
 .def{
   text-align: center;
   margin: 20px 20px 20px 20px;
+  font-family: 'Mukta', sans-serif;
+}
+.divider {
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
 }
 </style>

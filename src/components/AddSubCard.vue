@@ -2,12 +2,12 @@
   <div>
     <v-row justify="center">
       <v-dialog v-model="dialog" persistent max-width="500px">
-        <v-card>
+        <v-card height="500px">
           <v-card-title>
+            <span class="text-h5 mx-auto">Add Subscription</span>
             <v-btn color="primary" text @click="closeAddSub" icon>
               <v-icon>mdi-close</v-icon>
             </v-btn>
-            <span class="text-h5 mx-auto">Add Subscription</span>
           </v-card-title>
           <v-card-text>
             <v-container>
@@ -17,7 +17,7 @@
                     hint="This data will be taken to calculate payment days and  total paid amounts"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                  <v-text-field label="Payment method" v-model="paymentMethod"></v-text-field>
+                  <v-select :items="['Credit/Debit Card', 'PayPal', 'PaySafe Card', 'Prepaid Card', 'Others']" label="Payment method" v-model="paymentMethod"></v-select>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
                   <v-text-field label="Notes" v-model="notes"></v-text-field>
@@ -27,7 +27,7 @@
             <small>*indicates required field</small>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary" dark small class="mx-auto mb-5" @click="addSub">
+            <v-btn color="primary" dark small rounded class="mx-auto mb-5 px-4" @click="addSub">
               Save
             </v-btn>
           </v-card-actions>
@@ -45,7 +45,7 @@ export default {
   data: () => ({
     store: useCatalogStore(),
     dialog: true,
-    hiring: Date.now(),
+    hiring: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
     paymentMethod: '',
     notes: ''
   }),

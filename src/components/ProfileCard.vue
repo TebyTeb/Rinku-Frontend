@@ -2,8 +2,8 @@
   <v-container fluid>
     <v-layout column>
       <v-card>
-        <v-card-text>
-          <v-flex class="mb-4">
+        <v-card-text class="pa-0">
+          <v-flex class="mb-4 profile">
             <v-avatar size="96" class="mr-4">
               <img src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg" alt="Avatar">
             </v-avatar>
@@ -12,26 +12,31 @@
             v-model="form.name"
             label="Name"
             :readonly="noEdit"
+            class="px-4"
           ></v-text-field>
           <v-text-field
             v-model="form.surname"
             label="Surname"
             :readonly="noEdit"
+            class="px-4"
           ></v-text-field>
           <v-text-field
             v-model="form.age"
             label="Age"
             :readonly="noEdit"
+            class="px-4"
           ></v-text-field>
           <v-text-field
             v-model="form.email"
             label="Email Address"
             :readonly="noEdit"
+            class="px-4"
           ></v-text-field>
           <v-text-field
             v-model="form.telephone"
             label="Phone Number"
             :readonly="noEdit"
+            class="px-4 mb-4"
           ></v-text-field>
         </v-card-text>
       </v-card>
@@ -54,11 +59,11 @@
             key="action"
             class="d-flex mt-6"
           >
-            <v-btn rounded color="error" class="px-6" @click="resetDefault">
+            <v-btn rounded color="primary" class="px-6" @click="resetDefault">
               cancel
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn rounded color="primary" class="px-8" @click="updateUser">
+            <v-btn rounded outlined color="primary" class="px-8" @click="updateUser">
               send
             </v-btn>
           </v-card-actions>
@@ -116,5 +121,14 @@ export default {
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+.profile {
+  padding: 16px;
+  background-color: #FAECD5;
+  border-radius: 5px 5px 0 0;
+
+}
+img {
+  border: 3px solid #DD7225;
 }
 </style>

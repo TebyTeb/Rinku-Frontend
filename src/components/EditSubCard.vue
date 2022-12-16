@@ -4,10 +4,10 @@
       <v-dialog v-model="dialog" persistent max-width="500px">
         <v-card>
           <v-card-title>
+            <span class="text-h5 mx-auto">Edit Subscription</span>
             <v-btn color="primary" text @click="closeAddNotif" icon>
               <v-icon>mdi-close</v-icon>
             </v-btn>
-            <span class="text-h5 mx-auto">Change Subscription</span>
           </v-card-title>
           <v-card-text>
             <v-container>
@@ -45,7 +45,8 @@
               color="primary"
               dark
               small
-              class="mx-auto mb-5"
+              rounded
+              class="mx-auto mb-5 px-4"
               @click="upPlan"
             >
               Update
@@ -64,9 +65,9 @@ export default {
     return {
       dialog: true,
       nameplans: [],
-      plan: '',
-      pay: '',
-      mens: ''
+      plan: this.sub.plan,
+      pay: this.sub.payment_method,
+      mens: this.sub.notes
     }
   },
   props: {

@@ -9,12 +9,12 @@
         </template>
         <v-card>
           <v-container d-flex flex-no-wrap>
-            <v-card-actions>
+            <v-card-actions  class="mx-auto pl-8">
+            <v-card-title>Subscriptions</v-card-title>
               <v-btn color="primary" text @click="store.switchDialog">
                 <v-icon dark>mdi-close</v-icon>
               </v-btn>
             </v-card-actions>
-            <v-card-title>Subscriptions</v-card-title>
           </v-container>
           <v-text-field class="mx-auto" style="width: 90%;" outlined label="Search" v-model="searchInput"></v-text-field>
 
@@ -22,8 +22,13 @@
 
           <v-card class="mx-auto" width="300" height="300">
             <v-list>
-              <v-list-group v-for="(sub, i) in search" :key="i" :value="false" prepend-icon="mdi-account-circle">
+              <v-list-group v-for="(sub, i) in search" :key="i" :value="false">
                 <template v-slot:activator>
+                  <v-img
+                    :src="require(`../assets/logos/${sub.iconName}.png`)"
+                    class="mr-4"
+                    width="25"
+                  />
                   <v-list-item-title>{{ sub.name }}</v-list-item-title>
                 </template>
                 <v-list-item v-for="(plan, i) in sub.plans" :key="i" link>
