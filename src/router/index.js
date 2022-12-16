@@ -6,6 +6,7 @@ import SignupView from '../views/SignupView.vue'
 import SubscriptionView from '../views/SubscriptionView.vue'
 import AboutUsView from '../views/AboutUsView.vue'
 import NotificationView from '../views/NotificationView.vue'
+import CalendarView from '../views/CalendarView.vue'
 import FAQView from '../views/FAQView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 
@@ -50,6 +51,14 @@ const routes = [
     path: '/notifs',
     name: 'notification',
     component: NotificationView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/calendar',
+    name: 'calendar',
+    component: CalendarView,
     meta: {
       requiresAuth: true
     }
