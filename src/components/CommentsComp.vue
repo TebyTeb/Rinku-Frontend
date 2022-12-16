@@ -1,7 +1,7 @@
 <template>
   <div class="cont">
     <div class="titulo">
-      <span>Reseñas</span>
+      <span>Reviews</span>
       <hr class="mx-10 divider" color="orange"/>
     </div>
     <v-carousel v-model="model" height="300" hide-delimiters show-arrows-on-hover>

@@ -25,22 +25,22 @@ export default {
       team: [
         {
           name: 'Bárbara Segura Suárez',
-          puesto: 'Directora Creativa',
+          puesto: 'Art director',
           imgsrc: 'barbara'
         },
         {
           name: 'Alejandro Cruz Santiago',
-          puesto: 'El del Backend',
+          puesto: 'Backend engineer',
           imgsrc: 'alex'
         },
         {
           name: 'Iratze Eizaguirre Loro',
-          puesto: 'Personal de apoyo',
+          puesto: 'Technical manager',
           imgsrc: 'iratze'
         },
         {
           name: 'Esteban Ojeda Hernández',
-          puesto: 'El del Frontend',
+          puesto: 'Fullstack developer',
           imgsrc: 'teby'
         }
       ]
