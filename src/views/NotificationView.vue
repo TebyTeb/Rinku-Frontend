@@ -1,12 +1,12 @@
 <template>
   <div>
     <ProfileBar />
-    <v-container style="padding: 0px 12px; height: 80px">
-      <v-card-text style="padding: 16px;">
+    <AddNotifCard2 class="pt-8" @add-notif="updtNotifs()"/>
+    <v-container v-if="notifs.length > 3" style="padding: 0px 12px; height: 80px">
+      <v-card-text style="padding: 10px;">
           <v-text-field label="Search" append-icon="mdi-magnify" v-model="searchInput"></v-text-field>
       </v-card-text>
     </v-container>
-    <AddNotifCard2 @add-notif="updtNotifs()"/>
     <NotifCard v-for="(notif, idx) in search" :key="idx" :notif="notif" @updt-notifs="updtNotifs"/>
   </div>
 </template>

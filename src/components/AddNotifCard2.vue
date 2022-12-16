@@ -86,31 +86,28 @@ export default {
     subs: [],
     plans: [],
     subPlan: '',
-    date: '',
+    date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
     quantity: '',
     period: ''
   }),
   computed: {
-    dialog() {
+    dialog () {
       return this.store.dialogState
     }
   },
-  async created() {
+  async created () {
     this.subs = await subsAPI.getSubscriptions(sub => sub.userid.email === this.store2.email)
     this.plans = this.subs.map(sub => sub.name + ' - ' + sub.plan.name)
   },
   methods: {
-    async addNotif() {
-
+    async addNotif () {
       const nextPayment = new Date(this.subs.filter(sub => this.subPlan.includes(sub.name))[0].nextPayment)
 
       if (this.radioGroup === 'period' && this.period === 'days') {
         this.date = nextPayment.setDate(nextPayment.getDate() - this.quantity)
-      }
-      else if (this.radioGroup === 'period' && this.period === 'weeks') {
+      } else if (this.radioGroup === 'period' && this.period === 'weeks') {
         this.date = nextPayment.setDate(nextPayment.getDate() - this.quantity * 7)
-      }
-      else if (this.radioGroup === 'period' && this.period === 'months') {
+      } else if (this.radioGroup === 'period' && this.period === 'months') {
         this.date = nextPayment.setMonth(nextPayment.getMonth() - this.quantity)
       }
 

@@ -4,7 +4,7 @@
       <v-container d-flex flex-no-wrap justify-space-between @click="show = !show">
         <div class="inner" >
       <img
-      class="img"
+      class="img my-auto"
       :src="require(`../assets/logos/${this.sub.iconName}.png`)">
           <div>
             <v-card-title>
@@ -24,10 +24,10 @@
         <div v-show="show">
           <v-divider></v-divider>
 
-          <v-card-text>
+          <v-card-text class="pt-0">
             <p><strong>Billing: </strong>{{ sub.plan.quantity }} €/{{ sub.plan.hiring }}</p>
-            <v-divider></v-divider>
-            <p><strong>Payment method: </strong>{{ sub.payment_method }}</p>
+            <v-divider v-if="sub.payment_method !== ''"></v-divider>
+            <p><strong v-if="sub.payment_method !== ''">Payment method: </strong>{{ sub.payment_method }}</p>
             <v-divider></v-divider>
             <p><strong>First payment: </strong>{{ new Date(sub.hiring_day).toLocaleDateString('es-ES') }}</p>
             <v-divider></v-divider>
@@ -93,12 +93,12 @@ export default {
     deletingSub: false
   }),
   methods: {
-    async deleteSub() {
+    async deleteSub () {
       this.deletingSub = false
       this.$emit('delete-sub', this.sub._id)
     }
   },
-  async created() {
+  async created () {
     const catalog = await catLog.getCatalog()
     catalog.forEach(e => {
       if (e.name === this.sub.name) {
