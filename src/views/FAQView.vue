@@ -3,6 +3,7 @@
     <div class="faq">
       <h1>FAQ</h1>
       <span>Frequently Asked Questions</span>
+      <hr class="mx-7 divider" color="orange"/>
     </div>
     <questionComp v-for="info, idx in questions" :key="idx" :data=info />
   </div>
@@ -18,19 +19,24 @@ export default {
     return {
       questions: [
         {
-          tittle: '¿Hay suscripciones personalizadas?'
+          tittle: 'Can I add personalized subscriptions?',
+          text: 'I\'ts not implemented right now, we aim to include it in future releases'
         },
         {
-          tittle: '¿El servicio se encarga de gestionar los cobros?'
+          tittle: 'Does Rinku handle payments?',
+          text: 'This service does not manage any payment, it helps you control your expenses in streaming platforms & other subscriptions services, all in one place.'
         },
         {
-          tittle: '¿El servicio vende nuestra información?'
+          tittle: 'Is Rinku selling our info?',
+          text: 'No vendemos ninguna informacion personal de nuestros usuarios y por obligacion de la ley de proteccion de datos estamos en el deber de asegurar la seguridad de nuestros usuarios'
         },
         {
-          tittle: '¿El equipo de desarollo tiene pensado sacar una aplicación para móvil?'
+          tittle: 'Will Rinku be available in mobile platforms?',
+          text: 'We are currently working hard in order to turn the site into a PWA that will be installable in mobile devices among other platforms.'
         },
         {
-          tittle: '¿El servicio seguirá siendo gratuito?'
+          tittle: 'Will Rinku keep being free?',
+          text: 'The base app will be completely free, and there will be paid upgrade packages for those who want to get all the functionalitis Rinku can offer.'
         }
       ]
     }
@@ -42,6 +48,9 @@ export default {
 .faq {
   text-align: center;
   margin: 50px;
+  font-family: 'Mukta', sans-serif;
 }
-
+.divider {
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
+}
 </style>

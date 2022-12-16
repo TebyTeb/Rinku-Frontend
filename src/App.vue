@@ -26,6 +26,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap');
 .view {
   margin-bottom: 100px;
 }
