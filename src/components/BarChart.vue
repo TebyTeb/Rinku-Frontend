@@ -1,12 +1,14 @@
 <template>
   <div>
     <v-container class="v-flex text-center mt-8 py-0">
-      <span class="text-h5">Monthly</span>
+      <v-select style="width: 100px; margin: 0 auto;" :items="['Monthly', 'Annually']" required
+      v-model="period"></v-select>
     </v-container>
     <div>
       <GChart :type="type" :data="data" :options="options" />
     </div>
-    <v-container class="mt-5">
+
+    <v-container v-if="period === 'Monthly'" class="mt-5">
       <v-card class="mx-auto my-3" max-width="340" color="orange lighten-5">
         <v-card-title class="py-2">
           Total paying: {{ totalPaying }} €
@@ -23,6 +25,25 @@
         </v-card-title>
       </v-card>
     </v-container>
+
+    <v-container v-if="period === 'Annually'" class="mt-5">
+      <v-card class="mx-auto my-3" max-width="340" color="orange lighten-5">
+        <v-card-title class="py-2">
+          Total paying: {{ totalPaying * 12 }} €
+        </v-card-title>
+      </v-card>
+      <v-card class="mx-auto my-3" max-width="340" color="orange lighten-5">
+        <v-card-title class="py-2">
+          Budget: {{ budget * 12 }} €
+        </v-card-title>
+      </v-card>
+      <v-card v-if="budget !== 0" class="mx-auto my-3" max-width="340" color="orange lighten-5">
+        <v-card-title class="py-2">
+          Balance: {{ (budget - totalPaying) * 12 }} €
+        </v-card-title>
+      </v-card>
+    </v-container>
+
   </div>
 </template>
 
@@ -35,16 +56,17 @@ export default {
     GChart
   },
   data: () => ({
+    period: 'Monthly',
     subs: [],
     totalPaying: null,
     budget: 0,
-    type: 'PieChart',
+    type: 'ColumnChart',
     data: [
       ['Subscriptions', 'Costs']
     ],
     options: {
       legend: {
-        position: 'bottom'
+        position: 'none'
       },
       pieHole: 0.5,
       width: '100%',
