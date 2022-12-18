@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib/framework'
+import VueGoogleCharts from 'vue-google-charts/legacy' // importo VGC
 
 Vue.use(Vuetify)
+Vue.use(VueGoogleCharts) // uso VGC
 
 export default new Vuetify({
   theme: {
