@@ -4,13 +4,13 @@
       <span>Reviews</span>
       <hr class="mx-10 divider" color="orange"/>
     </div>
-    <v-carousel v-model="model" height="300" hide-delimiters show-arrows-on-hover>
-      <v-carousel-item v-for="mensaje, idx in mensajes" :key="idx" >
+    <v-carousel v-model="model" height="300" hide-delimiters>
+      <v-carousel-item v-for="mensaje, idx in mensajes" :key="idx">
         <v-card
-          class="mx-5 format"
+          class="mx-auto format"
           color="orange lighten-4"
           max-width="400"
-          card-border-radius="100px"
+          width="80%"
         >
           <v-card-title>
             <span class="text-h6 card-title">Rinku</span>

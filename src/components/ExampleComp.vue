@@ -10,11 +10,9 @@
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
-        reverse-transition="fade-transition"
-        transition="fade-transition"
       >
       <v-img
-        :src="require(`../assets/${item.src}.png`)"
+        :src="require(`../assets/mockups/${item.src}.png`)"
         contain
         class="image"
       ></v-img>
@@ -29,13 +27,13 @@ export default {
     return {
       items: [
         {
-          src: 'img4'
+          src: 'mockup-subs'
         },
         {
-          src: 'image'
+          src: 'mockup-calendar'
         },
         {
-          src: 'image2'
+          src: 'mockup-balance'
         }
       ]
     }
@@ -54,6 +52,6 @@ export default {
   box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
 }
 .image {
-  height: 90%;
+  height: 100%;
 }
 </style>
