@@ -27,6 +27,7 @@
       @click.prevent="login"
       >Login
     </v-btn>
+    <LoadingComp v-if="loadingshow"/>
     <RouterLink :to="{name: 'signup'}"
     >Don't have an account? <span style="color: #DD7225;">Sign Up</span></RouterLink>
       </v-card-actions>
@@ -37,13 +38,16 @@
 import API from '../services/api.js'
 import { useAuthStore } from '../stores/store'
 import { RouterLink } from 'vue-router'
+import LoadingComp from './LoadingComp.vue'
 export default {
   components: {
-    RouterLink
+    RouterLink,
+    LoadingComp
   },
   data () {
     return {
       show: false,
+      loadingshow: false,
       loginData: {
         email: '',
         password: ''
@@ -53,10 +57,12 @@ export default {
   },
   methods: {
     async login () {
+      this.loadingshow = true
       const response = await API.login(this.loginData)
       if (response.error) {
         alert('wrong username/password')
       } else {
+        this.loadingshow = false
         this.store.login(response.token, response.email)
         this.loginData.email = ''
         this.loginData.password = ''
