@@ -3,6 +3,8 @@
   <ProfileBarVue />
     <v-container class="text-center mt-5 mb-0">
       <v-date-picker
+        width="100%"
+        elevation="2"
         v-model="today"
         :event-color="date => date[9] % 2 ? 'red' : 'yellow'"
         :events="functionEvents"
