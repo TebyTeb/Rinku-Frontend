@@ -1,7 +1,6 @@
 <template>
   <div>
   <ProfileBarVue />
-  <v-row justify="space-between">
     <v-container class="text-center mt-5 mb-0">
       <v-date-picker
         v-model="today"
@@ -13,7 +12,6 @@
     <v-container>
       <SubCard v-for="(sub, idx) in subsInDate" :key="idx" :sub="sub"/>
     </v-container>
-  </v-row>
   </div>
 </template>
 
