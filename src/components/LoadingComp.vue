@@ -1,5 +1,5 @@
 <template>
-  <div class="loading">
+  <div class="loading" style="height:40%" >
     <v-progress-circular
       :size="70"
       :width="10"
@@ -17,7 +17,6 @@ export default {
 
 <style lang="scss" scoped>
 .loading{
-  height: 20%;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.7);
   position: absolute;

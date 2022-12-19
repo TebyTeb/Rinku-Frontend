@@ -42,13 +42,11 @@
               <v-icon>mdi-window-close</v-icon>
             </v-list-item-icon>
           </v-list-item>
-          <v-list-item v-for="(link,keys) in links" :key="keys" class="item-hover">
-            <RouterLink :to=link.name class="links">
+          <v-list-item v-for="(link,keys) in links" :key="keys" class="item-hover" :to=link.name>
               <v-list-item-icon>
                 <v-icon>{{link.icon}}</v-icon>
               </v-list-item-icon>
               <v-list-item-title>{{link.title}}</v-list-item-title>
-            </RouterLink>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -64,9 +62,8 @@
               <v-icon>mdi-window-close</v-icon>
             </v-list-item-icon>
           </v-list-item>
-          <v-list-item>
+          <v-list-item :to="{name: 'profile'}" class="perfil">
             <v-spacer />
-            <RouterLink :to="{name: 'profile'}" class="perfil">
             <span>{{store.email}}</span>
             <v-avatar size="40" class="avatar">
               <img
@@ -74,22 +71,19 @@
                 src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg"
               >
             </v-avatar>
-          </RouterLink>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item v-for="(link,keys) in loggedLinks" :key="keys" class="item-hover">
-            <RouterLink :to=link.name class="links">
+          <v-list-item v-for="(link,keys) in loggedLinks" :key="keys" class="item-hover links stylecolor" :to=link.name>
               <v-list-item-icon>
                 <v-icon>{{link.icon}}</v-icon>
               </v-list-item-icon>
               <v-list-item-title>{{link.title}}</v-list-item-title>
-            </RouterLink>
           </v-list-item>
           <v-list-item class="item-hover" @click="logoutuser">
               <v-list-item-icon>
                 <v-icon >mdi-logout</v-icon>
               </v-list-item-icon>
-              <v-list-item-title class="stylecolor">Logout</v-list-item-title>
+              <v-list-item-title>Logout</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
