@@ -70,6 +70,7 @@
       >
       Signup
       </v-btn>
+      <LoadingComp2 v-if="loadingshow"/>
       <RouterLink :to="{name: 'login'}">Already a member? <span style="color: #DD7225;">Log In</span></RouterLink>
     </v-card-actions>
   </v-card-text>
@@ -79,16 +80,19 @@
 import api from '@/services/api'
 import { useAuthStore } from '@/stores/store'
 import { RouterLink } from 'vue-router'
+import LoadingComp2 from './LoadingComp2.vue'
 
 export default {
   components: {
-    RouterLink
+    RouterLink,
+    LoadingComp2
   },
   data () {
     return {
       valid: false,
       show1: false,
       show2: false,
+      loadingshow: false,
       rules: {
         required: v => !!v || 'This field is required.',
         email: value => {
@@ -117,10 +121,12 @@ export default {
       this.$refs.form.validate()
 
       if (this.valid && Object.values(this.newUser).includes(null) === false) {
+        this.loadingshow = true
         const response = await api.signup(this.newUser)
         if (response.error) {
           alert('Error creating account')
         } else {
+          this.loadingshow = false
           this.store.login(response.token, response.email)
           this.$router.push({ name: 'subscription' })
         }

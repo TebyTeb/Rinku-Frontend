@@ -1,5 +1,5 @@
 <template>
-  <div class="loading" style="height: 40%">
+  <div class="loading" style="height: 10%">
     <v-row justify="center">
         <v-progress-circular
           :size="70"
