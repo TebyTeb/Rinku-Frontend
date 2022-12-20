@@ -2,7 +2,7 @@
   <div>
     <ProfileBar />
     <CatalogCard class="pt-8" @show-add-sub="showAddSub"/>
-
+    <LoadingComp v-if="loadingshow"/>
     <img class="mt-10" style="width: 100%" v-if="subs.length === 0" src="../assets/emptyViewImages/noSubs.jpg">
     <p class="ml-0 mt-3 text-center" style="font-size: 18px; width: 100vw;" v-if="subs.length === 0">You have no subs registered yet!</p>
 
@@ -26,13 +26,15 @@ import SubCard from '@/components/SubCard.vue'
 import CatalogCard from '@/components/CatalogCard.vue'
 import AddSubCard from '@/components/AddSubCard.vue'
 import subsAPI from '../services/subscription.js'
+import LoadingComp from '../components/LoadingComp.vue'
 
 export default {
   components: {
     ProfileBar,
     SubCard,
     CatalogCard,
-    AddSubCard
+    AddSubCard,
+    LoadingComp
   },
   data: () => ({
     searchInput: '',
@@ -41,6 +43,7 @@ export default {
       value => (value && value.length >= 3) || 'Min 3 characters'
     ],
     subs: [],
+    loadingshow: false,
     addingSub: false,
     planToAdd: '',
     subToAdd: ''
@@ -51,7 +54,9 @@ export default {
     }
   },
   async created () {
+    this.loadingshow = true
     const subs = await subsAPI.getSubscriptions()
+    this.loadingshow = false
     this.subs = subs
   },
   methods: {
@@ -61,14 +66,20 @@ export default {
       this.subToAdd = sub
     },
     async updtSubs () {
+      this.loadingshow = true
       this.subs = await subsAPI.getSubscriptions()
+      this.loadingshow = false
     },
     async deleteSub (subId) {
+      this.loadingshow = true
       await subsAPI.deleteSubscription(subId)
+      this.loadingshow = false
       this.subs = this.subs.filter(sub => sub._id !== subId)
     },
     async upData () {
+      this.loadingshow = true
       const subs = await subsAPI.getSubscriptions()
+      this.loadingshow = false
       this.subs = subs
     }
   },

@@ -1,16 +1,11 @@
 <template>
   <div>
-    <div
-      class="cartel"
-    >
+    <div class="cartel">
       <h2>Login</h2>
       <p>Welcome back</p>
     </div>
     <v-container class="logger">
-      <transition
-        mode="out-in"
-        name="fade"
-      >
+      <transition mode="out-in" name="fade">
         <LogIn />
       </transition>
     </v-container>
@@ -19,6 +14,7 @@
 
 <script>
 import LogIn from '../components/LogIn.vue'
+
 export default {
   components: {
     LogIn
@@ -31,7 +27,7 @@ export default {
   position: fixed;
   z-index: 1;
   padding-left: 1rem;
-  background-color: #DD7225;
+  background-color: #dd7225;
   color: white;
   width: 100%;
   height: 72px;
@@ -41,10 +37,12 @@ export default {
 .logger {
   padding-top: 100px;
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .3s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

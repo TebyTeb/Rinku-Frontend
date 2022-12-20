@@ -11,12 +11,12 @@
     <v-container v-if="period === 'Monthly'" class="mt-5">
       <v-card class="mx-auto my-3" max-width="340" color="orange lighten-5">
         <v-card-title class="py-2">
-          Total paying: {{ totalPaying }} €
+          <span>Total paying:</span> <v-spacer/> <span>{{ totalPaying }} €</span>
         </v-card-title>
       </v-card>
       <v-card class="mx-auto my-3" max-width="340" color="orange lighten-5">
         <v-card-title class="py-2">
-          Budget: {{ budget }} €
+          <span>Budget:</span> <v-spacer/> <span>{{ budget }} €</span>
         </v-card-title>
       </v-card>
       <v-card v-if="budget !== 0" class="mx-auto my-3" max-width="340" color="orange lighten-5">
@@ -29,7 +29,7 @@
     <v-container v-if="period === 'Annually'" class="mt-5">
       <v-card class="mx-auto my-3" max-width="340" color="orange lighten-5">
         <v-card-title class="py-2">
-          Total paying: {{ totalPaying * 12 }} €
+          <span>Total paying:</span> <v-spacer/> <span>{{ totalPaying * 12 }} €</span>
         </v-card-title>
       </v-card>
       <v-card class="mx-auto my-3" max-width="340" color="orange lighten-5">
@@ -86,7 +86,7 @@ export default {
         const eachSub = mySubs.filter(elem => elem.name === sub.name)
         const budget = eachSub.reduce((acc, curr) => {
           if (curr.plan.hiring === 'year') {
-            return acc + Math.round(curr.plan.quantity / 12 * 100) / 100
+            return acc + Math.round((curr.plan.quantity / 12 * 100) / 100, 2)
           } else {
             return acc + curr.plan.quantity
           }
